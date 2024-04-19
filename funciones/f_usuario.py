@@ -47,6 +47,7 @@ def registrar_usuario(usuarios_db: list[Usuario]) -> list[Usuario]:
     while salir:
         email_exists = False
         nombre = input("Nombre: ").lower()
+        apellido = input("Apellido: ").lower()
         email = input("Email('exit' para salir): ").lower()
         if email == 'exit':
             salir = False
@@ -60,19 +61,19 @@ def registrar_usuario(usuarios_db: list[Usuario]) -> list[Usuario]:
                 if email_exists:
                     print("Ya existe el email en la Base de Datos")
                 else:
-                    usuarios_db = registrar_password(usuarios_db, nombre, email)
+                    usuarios_db = registrar_password(usuarios_db, nombre, apellido, email)
                     salir = False
                     input("Presione una tecla para continuar")
                     return usuarios_db
             else:
-                usuarios_db = registrar_password(usuarios_db, nombre, email)
+                usuarios_db = registrar_password(usuarios_db, nombre, apellido, email)
                 salir = False
                 input("Presione una tecla para continuar")
                 return usuarios_db
     return usuarios_db
 
 
-def registrar_password(usuarios_db: list[Usuario], nombre: str, email: str) -> list[Usuario]:
+def registrar_password(usuarios_db: list[Usuario], nombre: str, apellido: str, email: str) -> list[Usuario]:
     """ FUNCION COMPLEMENTARIA PARA AGREGAR USUARIOS NUEVOS """
 
     while True:
@@ -83,8 +84,8 @@ def registrar_password(usuarios_db: list[Usuario], nombre: str, email: str) -> l
         elif password == 'exit':
             return usuarios_db
         else:
-            print(f"\nusuario agregado 'nombre': {nombre}, 'email': {email} y 'password': {password}\n")
-            usuarios_db.append(Usuario(nombre, email, password))
+            print(f"\nusuario agregado 'nombre': {nombre}, 'apellido': {apellido}, 'email': {email} y 'password': {password}\n")
+            usuarios_db.append(Usuario(nombre, apellido, email, password))
             return usuarios_db
 
 
@@ -124,6 +125,6 @@ def ver_usuarios(usuarios_db: list[Usuario]) -> None:
 
     print("\n**** VER TODOS LOS USUARIOS ****\n")
     for usuario in usuarios_db:
-        print(f"nombre: {usuario.nombre} - email: {usuario.email} - contraseña: {usuario.password}")
+        print(f"usuario: {usuario}")
     input("\nPresione una tecla para continuar")
     return

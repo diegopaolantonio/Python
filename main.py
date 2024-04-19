@@ -2,7 +2,6 @@
 
 from clases.usuario import Usuario
 from clases.producto import Producto
-from clases.ventas import Ventas
 
 import funciones.f_usuario as funciones_usuario
 import funciones.f_producto as funciones_producto
@@ -15,9 +14,8 @@ def main() -> None:
     # Lista de usuarios, productos y ventas, hay un usuario admin, que no se puede eliminar y es el unico que puede
     # crear, borrar y ver la lista de base de datos
 
-    usuarios_db: list[Usuario] = [Usuario('admin', 'admin', 'admin')]
+    usuarios_db: list[Usuario] = [Usuario('admin', 'admin', 'admin', 'admin')]
     productos_db: list[Producto] = []
-    ventas_db: list[Ventas] = []
 
     usuario_logeado: Usuario | None = None;
 
@@ -38,8 +36,10 @@ def main() -> None:
                 print("6 - Registrar nuevo producto")
                 print("7 - Borrar producto")
                 print("8 - Ver lista completa de productos")
-            print(f"9 - Realizar compra")
-        print("10 - Salir de sistema")
+            print("9 - Realizar compra")
+            if usuario_logeado.email == 'admin':
+                print("10 - Ver lista completa de ventas")
+        print("11 - Salir de sistema")
 
         opcion = input("\nIngrese opcion: ")
 
@@ -60,8 +60,10 @@ def main() -> None:
         elif opcion == "8":
             funciones_producto.ver_productos(productos_db)
         elif opcion == "9":
-            ventas_db = funciones_compra.realizar_compra(ventas_db, usuario_logeado, productos_db)
+             funciones_compra.realizar_compra(usuario_logeado, productos_db)
         elif opcion == "10":
+            funciones_compra.ver_compras()
+        elif opcion == "11":
             usuario_logeado = funciones_usuario.logout_usuario()
             break
 

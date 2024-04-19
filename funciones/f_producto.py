@@ -84,6 +84,6 @@ def ver_productos(productos_db: list[Producto]) -> None:
 
     print("\n**** VER TODOS LOS PRODUCTOS ****\n")
     for producto in productos_db:
-        print(f"producto: {producto.nombre} - ${producto.precio}")
+        print(f"producto: {producto}")
     input("\nPresione una tecla para continuar")
     return

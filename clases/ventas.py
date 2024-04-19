@@ -17,3 +17,11 @@ class Ventas:
             "usuario": self.usuario,
             "producto": self.producto,
         }
+        Ventas.list_ventas.append(nueva_compra)
+
+    def __str__(self) -> str:
+        return f"{self.usuario.nombre} - {self.producto.nombre} ${self.producto.precio}"
+    
+    def __repr__(self) -> str:
+        return f"{self.usuario.nombre} - {self.producto.nombre} ${self.producto.precio}"
+    

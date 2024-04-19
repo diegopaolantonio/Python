@@ -1,11 +1,12 @@
 class Cliente:
-    def __init__(self, nombre: str) -> None:
+    def __init__(self, nombre: str, apellido: str) -> None:
         self.nombre = nombre
+        self.apellido = apellido
 
 
 class Usuario(Cliente):
-    def __init__(self, nombre: str, email: str, password: str) -> None:
-        super().__init__(nombre)
+    def __init__(self, nombre: str, apellido: str, email: str, password: str) -> None:
+        super().__init__(nombre, apellido)
         self.email = email
         self.password = password
 

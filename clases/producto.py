@@ -5,4 +5,7 @@ class Producto:
     
     def __str__(self) -> str:
         return f"{self.nombre}: ${self.precio}"
+    
+    def __repr__(self) -> str:
+        return f"{self.nombre}: ${self.precio}"
 
