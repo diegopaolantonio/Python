@@ -34,6 +34,6 @@ def ver_compras():
 
     print("\n**** VER TODOS LAS VENTAS ****\n")
     for venta in Ventas.list_ventas:
-        print(f"venta: {venta}")
+        print(f"venta: {venta["id"]} - {venta["usuario"]} - {venta["producto"]}")
     input("\nPresione una tecla para continuar")
     return
