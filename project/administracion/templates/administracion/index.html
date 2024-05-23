@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Administracion
+{% endblock title %}
+
+
+{% block body %}
+    <h1>Control PYME - Administracion</h1>
+    <p>Facturas</p>
+    <button><a href="{% url 'administracion:facturas_list' %}">Ir a lista</a></button>
+    <p>Gastos</p>
+    <button><a href="{% url 'administracion:gastos_list' %}">Ir a lista</a></button>
+{% endblock body %}

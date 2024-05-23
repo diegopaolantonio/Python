@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Personal | Crear o modificar areas
+{% endblock title %}
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Guardar</button>
+        <button type="reset"><a href="{% url 'personal:area_list' %}">Cancelar</a></button>
+    </form>
+{% endblock body %}

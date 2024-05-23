@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Proyectos
+{% endblock title %}
+
+
+{% block body %}
+    <h1>Control PYME - Proyectos</h1>
+    <p>Proyectos</p>
+    <button><a href="{% url 'proyectos:proyectos_list' %}">Ir a lista</a></button>
+{% endblock body %}

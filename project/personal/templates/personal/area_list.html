@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Personal | Listado de areas
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Personal | Listado de areas</h1>
+    <button><a href="{% url 'personal:index' %}">Volver</a></button>
+    <button><a href="{% url 'personal:area_create' %}">Agregar</a></button>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-lg-6">
+                <form
+                    action="{% url 'personal:area_list' %}"
+                    method="get"
+                    class="input-group"
+                >
+                    <input
+                    type="text"
+                    name="busqueda"
+                    class="form-control"
+                    placeholder="Buscar..."
+                    />
+                    <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <ul>
+        {% for area in areas %}
+            <li><h3>Area: {{ area.nombre }}</h3></li>
+            {% if area.pais %}
+                <p>Pais: {{ area.pais }}</p>
+            {% else %}
+                <p>Pais: "No hay registro"</p>
+            {% endif %}
+            <button><a href="{% url 'personal:area_update' area.id %}">Modificar</a></button>
+            <button><a href="{% url 'personal:area_delete' area.id %}">Eliminar</a></button>
+        {% endfor %}
+    </ul>
+{% endblock body %}

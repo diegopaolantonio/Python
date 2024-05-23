@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Administracion | Listado de facturas
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Administracion | Listado de facturas</h1>
+    <button><a href="{% url 'administracion:index' %}">Volver</a></button>
+    <button><a href="{% url 'administracion:facturas_create' %}">Agregar</a></button>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-lg-6">
+                <form
+                    action="{% url 'administracion:facturas_list' %}"
+                    method="get"
+                    class="input-group"
+                >
+                    <input
+                    type="text"
+                    name="busqueda"
+                    class="form-control"
+                    placeholder="Buscar..."
+                    />
+                    <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <ul>
+        {% for factura in facturas %}
+            <li><h3>Factura: {{ factura }}</h3></li>
+            {% if factura.Proyecto %}
+                <p>Proyecto: {{ factura.Proyecto }}</p>
+            {% else %}
+                <p>Proyecto: "No hay registro"</p>
+            {% endif %}
+            <button><a href="{% url 'administracion:facturas_update' factura.id %}">Modificar</a></button>
+            <button><a href="{% url 'administracion:facturas_delete' factura.id %}">Eliminar</a></button>
+        {% endfor %}
+    </ul>
+{% endblock body %}

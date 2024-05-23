@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Administracion | Crear o modificar gasto
+{% endblock title %}
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Guardar</button>
+        <button type="reset"><a href="{% url 'administracion:gastos_list' %}">Cancelar</a></button>
+    </form>
+{% endblock body %}

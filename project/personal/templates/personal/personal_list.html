@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Personal | Listado del personal
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Personal | Listado del personal</h1>
+    <button><a href="{% url 'personal:index' %}">Volver</a></button>
+    <button><a href="{% url 'personal:personal_create' %}">Agregar</a></button>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-lg-6">
+                <form
+                    action="{% url 'personal:personal_list' %}"
+                    method="get"
+                    class="input-group"
+                >
+                    <input
+                    type="text"
+                    name="busqueda"
+                    class="form-control"
+                    placeholder="Buscar..."
+                    />
+                    <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <ul>
+        {% for object in personal %}
+            <li><h3>{{ object }}</h3></li>
+            <p>DNI: {{ object.DNI }}</p>
+            {% if object.Area_id %}
+                <p>Area: {{ object.Area_id }}</p>
+            {% else %}
+                <p>Area: "No hay registro"</p>
+            {% endif %}
+            <button><a href="{% url 'personal:personal_update' object.id %}">Modificar</a></button>
+            <button><a href="{% url 'personal:personal_delete' object.id %}">Eliminar</a></button>
+        {% endfor %}
+    </ul>
+{% endblock body %}

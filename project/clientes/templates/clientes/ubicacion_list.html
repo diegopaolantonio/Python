@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Clientes | Listado de ubicaciones
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Clientes | Listado de ubicaciones</h1>
+    <button><a href="{% url 'clientes:index' %}">Volver</a></button>
+    <button><a href="{% url 'clientes:ubicacion_create' %}">Agregar</a></button>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-lg-6">
+                <form
+                    action="{% url 'clientes:ubicacion_list' %}"
+                    method="get"
+                    class="input-group"
+                >
+                    <input
+                    type="text"
+                    name="busqueda"
+                    class="form-control"
+                    placeholder="Buscar..."
+                    />
+                    <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <ul>
+        {% for ubicacion in ubicaciones %}
+            <li><h3>Pais: {{ ubicacion.pais }}</h3></li>
+            {% if ubicacion.provincia %}
+                <p>Provincia: {{ ubicacion.provincia }}</p>
+            {% else %}
+                <p>Provincia: "No hay registro"</p>
+            {% endif %}
+            <button><a href="{% url 'clientes:ubicacion_update' ubicacion.id %}">Modificar</a></button>
+            <button><a href="{% url 'clientes:ubicacion_delete' ubicacion.id %}">Eliminar</a></button>
+        {% endfor %}
+    </ul>
+{% endblock body %}

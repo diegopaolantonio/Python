@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Proyectos | Eliminar proyecto
+{% endblock title %}
+
+{% block body %}
+    {% if proyecto.Pais %}
+    <p class="fs-5  fst-italic ">Eliminar "{{ proyecto.Nombre }} - {{proyecto.Pais}}"?</p>
+    {% else %}
+    <p class="fs-5  fst-italic ">Eliminar "{{ proyecto.Nombre }}"?</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    <a href="{% url 'personal:index' %}">Volver al inicio de Proyectos</a>
+{% endblock body %}

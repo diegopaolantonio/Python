@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Administracion | Eliminar gasto
+{% endblock title %}
+
+{% block body %}
+    <p class="fs-5  fst-italic ">Eliminar "{{ gasto }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    <a href="{% url 'administracion:index' %}">Volver al inicio de Administracion</a>
+{% endblock body %}

@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Proyectos | Listado de Proyectos
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Proyectos | Listado de Proyectos</h1>
+    <button><a href="{% url 'proyectos:index' %}">Volver</a></button>
+    <button><a href="{% url 'proyectos:proyectos_create' %}">Agregar</a></button>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-lg-6">
+                <form
+                    action="{% url 'proyectos:proyectos_list' %}"
+                    method="get"
+                    class="input-group"
+                >
+                    <input
+                    type="text"
+                    name="busqueda"
+                    class="form-control"
+                    placeholder="Buscar..."
+                    />
+                    <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <ul>
+        {% for proyecto in proyectos %}
+            <li><h3>Nombre: {{ proyecto.Nombre }}</h3></li>
+            {% if proyecto.Pais %}
+                <p>Pais: {{ proyecto.Pais }}</p>
+            {% else %}
+                <p>Pais: "No hay registro"</p>
+            {% endif %}
+            <p>Fecha de inicio: {{ proyecto.FechaInicio }}</p>
+            {% if proyecto.FechaFin %}
+                <p>Fecha de fin: {{ proyecto.FechaFin }}</p>
+            {% else %}
+                <p>Fecha de fin: "No informado"</p>
+            {% endif %}
+            {% if proyecto.Estado %}
+                <p>Estado: {{ proyecto.Estado }}</p>
+            {% else %}
+                <p>Estado: "No informado"</p>
+            {% endif %}
+            <button><a href="{% url 'proyectos:proyectos_update' proyecto.id %}">Modificar</a></button>
+            <button><a href="{% url 'proyectos:proyectos_delete' proyecto.id %}">Eliminar</a></button>
+        {% endfor %}
+    </ul>
+{% endblock body %}

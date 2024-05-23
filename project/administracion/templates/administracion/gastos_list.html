@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Clientes | Listado de clientes
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Clientes | Listado de clientes</h1>
+    <button><a href="{% url 'administracion:index' %}">Volver</a></button>
+    <button><a href="{% url 'administracion:gastos_create' %}">Agregar</a></button>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-lg-6">
+                <form
+                    action="{% url 'administracion:gastos_list' %}"
+                    method="get"
+                    class="input-group"
+                >
+                    <input
+                    type="text"
+                    name="busqueda"
+                    class="form-control"
+                    placeholder="Buscar..."
+                    />
+                    <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <ul>
+        {% for gasto in gastos %}
+            <li><h3>{{ gasto }}</h3></li>
+            <p>Monto: {{ gasto.Moneda }} {{ gasto.Monto }}</p>
+            {% if gasto.Detalle %}
+                <p>Detalle: {{ gasto.Detalle }}</p>
+            {% else %}
+                <p>Detalle: "Sin especificar"</p>
+            {% endif %}
+            <button><a href="{% url 'administracion:gastos_update' gasto.id %}">Modificar</a></button>
+            <button><a href="{% url 'administracion:gastos_delete' gasto.id %}">Eliminar</a></button>
+        {% endfor %}
+    </ul>
+{% endblock body %}

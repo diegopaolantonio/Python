@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Personal
+{% endblock title %}
+
+
+{% block body %}
+    <h1>Control PYME - Personal</h1>
+    <p>Areas</p>
+    <button><a href="{% url 'personal:area_list' %}">Ir a lista</a></button>
+    <p>Personal</p>
+    <button><a href="{% url 'personal:personal_list' %}">Ir a lista</a></button>
+{% endblock body %}

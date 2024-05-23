@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Clientes
+{% endblock title %}
+
+
+{% block body %}
+    <h1>Control PYME - Clientes</h1>
+    <p>Clientes</p>
+    <button><a href="{% url 'clientes:clientes_list' %}">Ir a lista</a></button>
+    <p>Ubicaciones</p>
+    <button><a href="{% url 'clientes:ubicacion_list' %}">Ir a lista</a></button>
+{% endblock body %}
