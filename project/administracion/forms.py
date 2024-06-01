@@ -21,7 +21,6 @@ class FacturasForm(forms.ModelForm):
         model = models.Factura
         fields = [
             "Numero",
-            "Cliente",
             "Proyecto",
             "FechaEmision",
             "FechaVencimiento",

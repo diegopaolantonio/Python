@@ -32,6 +32,11 @@
     <ul>
         {% for proyecto in proyectos %}
             <li><h3>Nombre: {{ proyecto.Nombre }}</h3></li>
+            {% if proyecto.Cliente %}
+                <p>Cliente: {{ proyecto.Cliente }}</p>
+            {% else %}
+                <p>Cliente: "No hay registro"</p>
+            {% endif %}
             {% if proyecto.Pais %}
                 <p>Pais: {{ proyecto.Pais }}</p>
             {% else %}

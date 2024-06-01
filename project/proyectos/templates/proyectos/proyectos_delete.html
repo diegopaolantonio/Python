@@ -5,10 +5,11 @@
 {% endblock title %}
 
 {% block body %}
+    <h1>Control PYME - Proyectos | Eliminar proyecto</h1>
     {% if proyecto.Pais %}
-    <p class="fs-5  fst-italic ">Eliminar "{{ proyecto.Nombre }} - {{proyecto.Pais}}"?</p>
+        <p class="fs-5  fst-italic ">Eliminar "{{ proyecto.Nombre }} - {{proyecto.Pais}}"?</p>
     {% else %}
-    <p class="fs-5  fst-italic ">Eliminar "{{ proyecto.Nombre }}"?</p>
+        <p class="fs-5  fst-italic ">Eliminar "{{ proyecto.Nombre }}"?</p>
     {% endif %}
     <form method="post">
         {% csrf_token %}

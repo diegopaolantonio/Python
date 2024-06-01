@@ -6,8 +6,8 @@
 
 {% block body %}
     <h1>Control PYME - Administracion | Listado de facturas</h1>
-    <button><a href="{% url 'administracion:index' %}">Volver</a></button>
-    <button><a href="{% url 'administracion:facturas_create' %}">Agregar</a></button>
+    <a class="btn btn-secondary" href="{% url 'administracion:index' %}">Volver</a>
+    <a class="btn btn-primary" href="{% url 'administracion:facturas_create' %}">Agregar</a>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
@@ -32,13 +32,20 @@
     <ul>
         {% for factura in facturas %}
             <li><h3>Factura: {{ factura }}</h3></li>
-            {% if factura.Proyecto %}
-                <p>Proyecto: {{ factura.Proyecto }}</p>
-            {% else %}
-                <p>Proyecto: "No hay registro"</p>
-            {% endif %}
-            <button><a href="{% url 'administracion:facturas_update' factura.id %}">Modificar</a></button>
-            <button><a href="{% url 'administracion:facturas_delete' factura.id %}">Eliminar</a></button>
+            <p class="p-0 m-0">Proyectos:</p>
+            <ul>
+                {% if factura.Proyecto.all %}
+                    {% for proyecto in factura.Proyecto.all %}
+                        <li>{{ proyecto }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>"No hay registro"</li>
+                {% endif %}
+            </ul>
+            <div class="py-3">
+                <a class="btn btn-primary" href="{% url 'administracion:facturas_update' factura.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'administracion:facturas_delete' factura.id %}">Eliminar</a>
+            </div>
         {% endfor %}
     </ul>
 {% endblock body %}

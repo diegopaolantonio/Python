@@ -32,6 +32,11 @@
     <ul>
         {% for object in personal %}
             <li><h3>{{ object }}</h3></li>
+            {% if object.Usuario %}
+                <p style="color: blue;">Usuario autorizado</p>
+            {% else %}
+                <p style="color: red;">Usuario no autorizado</p>
+            {% endif %}
             <p>DNI: {{ object.DNI }}</p>
             {% if object.Area_id %}
                 <p>Area: {{ object.Area_id }}</p>
