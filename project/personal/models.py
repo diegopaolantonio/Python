@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.forms import ValidationError
 
 
 class Area(models.Model):
@@ -19,6 +20,7 @@ class Personal(models.Model):
     DNI = models.DecimalField(max_digits=20, decimal_places=0, unique=True)
     Area_id = models.ForeignKey(Area, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Area de trabajo")
     Usuario = models.OneToOneField(User, on_delete=models.DO_NOTHING, related_name="usuario", null=True, blank=True)
+    Avatar = models.ImageField(upload_to="avatares", null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.Apellido}, {self.Nombre}"

@@ -6,8 +6,10 @@
 
 {% block body %}
     <h1>Control PYME - Clientes | Listado de clientes</h1>
-    <button><a href="{% url 'clientes:index' %}">Volver</a></button>
-    <button><a href="{% url 'clientes:clientes_create' %}">Agregar</a></button>
+    <div class="m-3">
+        <a class="btn btn-secondary" href="{% url 'clientes:index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'clientes:clientes_create' %}">Agregar</a>
+    </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
@@ -33,17 +35,15 @@
         {% for cliente in clientes %}
             <li><h3>{{ cliente }}</h3></li>
             <p>CUIT: {{ cliente.Cuit }}</p>
-        {% if cliente.Ubicacion_id %}
-            <p>Origen: {{ cliente.Ubicacion_id }}</p>
-        {% else %}
-            <p>Origen: "No hay registro"</p>
-        {% endif %}
-            <button>
-                <a href="{% url 'clientes:clientes_update' cliente.id %}">Modificar</a>
-            </button>
-            <button>
-                <a href="{% url 'clientes:clientes_delete' cliente.id %}">Eliminar</a>
-            </button>
+            {% if cliente.Ubicacion_id %}
+                <p>Origen: {{ cliente.Ubicacion_id }}</p>
+            {% else %}
+                <p>Origen: "No hay registro"</p>
+            {% endif %}
+            <div class="py-3">
+                <a class="btn btn-primary" href="{% url 'clientes:clientes_update' cliente.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'clientes:clientes_delete' cliente.id %}">Eliminar</a>
+            </div>
         {% endfor %}
     </ul>
 {% endblock body %}

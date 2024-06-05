@@ -6,8 +6,10 @@
 
 {% block body %}
     <h1>Control PYME - Administracion | Listado de facturas</h1>
-    <a class="btn btn-secondary" href="{% url 'administracion:index' %}">Volver</a>
-    <a class="btn btn-primary" href="{% url 'administracion:facturas_create' %}">Agregar</a>
+    <div class="m-3">
+        <a class="btn btn-secondary" href="{% url 'administracion:index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'administracion:facturas_create' %}">Agregar</a>
+    </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">

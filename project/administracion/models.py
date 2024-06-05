@@ -4,8 +4,7 @@ from proyectos.models import Proyecto
 
 class Factura(models.Model):
     Numero = models.DecimalField(max_digits=20, decimal_places=0, unique=True)
-    Proyecto = models.ManyToManyField(Proyecto)
-    # OneToOneField(Proyecto, on_delete=models.DO_NOTHING, related_name="factura_proyecto", null=True, blank=True)
+    Proyecto = models.ManyToManyField(Proyecto, null=True, blank=True)
     FechaEmision = models.DateField()
     FechaVencimiento = models.DateField(null=True, blank=True)
     Moneda = models.CharField(max_length=10, default="USD")

@@ -8,6 +8,10 @@
 
 >El objetivo de esta aplicacion es facilitar la gestion dentro de una PYME o para un Freelance, pudiendo llevar un control del personal que se utiliza, los clientes que se atienden, los proyectos, la facturacion y los gastos.
 
+## Video de muestra de funcionamiento
+
+[Gestion PYME](https://drive.google.com/drive/folders/1QA1rmgzZ3gfZURd4FtequOAPjxvTfnEp?usp=sharing)
+
 ## Descripcion tecnica
 
 ### Secciones
@@ -141,11 +145,8 @@
 ## Mejoras futuras
 
 - Mejorar la interface grafica.
-- Mejorar la informacion que de los distintos models.
-- Cruzar la informacion de los models, para poder realizar un analisis de los datos.
 - Plantear mas secciones en la aplicacion.
 
 ## Problemas conocidos
 
-- Al no tener un cruzamiento de informacion se presenta un posible foco de falla.
 - No es una una interlaz intuitiva.

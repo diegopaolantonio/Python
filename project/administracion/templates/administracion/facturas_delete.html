@@ -6,14 +6,10 @@
 
 {% block body %}
     <h1>Control PYME - Administracion | Eliminar factura</h1>
-    {% if factura.Proyecto %}
-        <p class="fs-5  fst-italic ">Eliminar "{{ factura }} - {{factura.Proyecto}}"?</p>
-    {% else %}
-        <p class="fs-5  fst-italic ">Eliminar "{{ factura }}"?</p>
-    {% endif %}
-    <form method="post">
+    <p class="fs-5 fst-italic" style="color: red;">Eliminar la factura: "{{ factura }}"?</p>
+    <form class="m-1" method="post">
         {% csrf_token %}
-        <button type="submit">Confirmar</button>
+        <button class="btn btn-primary" type="submit">Confirmar</button>
     </form>
-    <a href="{% url 'administracion:index' %}">Volver al inicio de Administracion</a>
+    <a class="btn btn-dark m-1" href="{% url 'administracion:index' %}">Volver al inicio de Administracion</a>
 {% endblock body %}

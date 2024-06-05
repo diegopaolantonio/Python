@@ -7,8 +7,12 @@
 
 {% block body %}
     <h1>Control PYME - Clientes</h1>
-    <p>Clientes</p>
-    <button><a href="{% url 'clientes:clientes_list' %}">Ir a lista</a></button>
-    <p>Ubicaciones</p>
-    <button><a href="{% url 'clientes:ubicacion_list' %}">Ir a lista</a></button>
+    <div class="m-3">
+        <p class="m-1">Clientes</p>
+        <a class="btn btn-dark" href="{% url 'clientes:clientes_list' %}">Ir a lista</a>
+    </div>
+    <div class="m-3">
+        <p class="m-1">Ubicaciones</p>
+        <a class="btn btn-dark" href="{% url 'clientes:ubicacion_list' %}">Ir a lista</a>
+    </div>
 {% endblock body %}

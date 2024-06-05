@@ -6,8 +6,10 @@
 
 {% block body %}
     <h1>Control PYME - Personal | Listado de areas</h1>
-    <button><a href="{% url 'personal:index' %}">Volver</a></button>
-    <button><a href="{% url 'personal:area_create' %}">Agregar</a></button>
+    <div class="m-3">
+        <a class="btn btn-secondary" href="{% url 'personal:index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'personal:area_create' %}">Agregar</a>
+    </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
@@ -30,15 +32,17 @@
         </div>
     </div>
     <ul>
-        {% for area in areas %}
+        {% for area in object_list %}
             <li><h3>Area: {{ area.nombre }}</h3></li>
             {% if area.pais %}
                 <p>Pais: {{ area.pais }}</p>
             {% else %}
                 <p>Pais: "No hay registro"</p>
             {% endif %}
-            <button><a href="{% url 'personal:area_update' area.id %}">Modificar</a></button>
-            <button><a href="{% url 'personal:area_delete' area.id %}">Eliminar</a></button>
+            <div class="py-3">
+                <a class="btn btn-primary" href="{% url 'personal:area_update' area.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'personal:area_delete' area.id %}">Eliminar</a>
+            </div>
         {% endfor %}
     </ul>
 {% endblock body %}

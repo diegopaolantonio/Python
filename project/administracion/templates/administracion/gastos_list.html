@@ -6,8 +6,10 @@
 
 {% block body %}
     <h1>Control PYME - Eliminar gasto | Listado de gastos</h1>
-    <button><a href="{% url 'administracion:index' %}">Volver</a></button>
-    <button><a href="{% url 'administracion:gastos_create' %}">Agregar</a></button>
+    <div class="m-3">
+        <a class="btn btn-secondary" href="{% url 'administracion:index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'administracion:gastos_create' %}">Agregar</a>
+    </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
@@ -38,8 +40,10 @@
             {% else %}
                 <p>Detalle: "Sin especificar"</p>
             {% endif %}
-            <button><a href="{% url 'administracion:gastos_update' gasto.id %}">Modificar</a></button>
-            <button><a href="{% url 'administracion:gastos_delete' gasto.id %}">Eliminar</a></button>
+            <div class="py-3">
+                <a class="btn btn-primary" href="{% url 'administracion:gastos_update' gasto.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'administracion:gastos_delete' gasto.id %}">Eliminar</a>
+            </div>
         {% endfor %}
     </ul>
 {% endblock body %}

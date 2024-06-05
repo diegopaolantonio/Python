@@ -11,7 +11,9 @@
         <table>
             {{ form.as_table }}
         </table>
-        <button type="submit">Guardar</button>
-        <button type="reset"><a href="{% url 'proyectos:proyectos_list' %}">Cancelar</a></button>
+        <div class="m-3">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            <a class="btn btn-secondary" href="{% url 'proyectos:proyecto_list' %}">Cancelar</a>
+        </div>
     </form>
 {% endblock body %}

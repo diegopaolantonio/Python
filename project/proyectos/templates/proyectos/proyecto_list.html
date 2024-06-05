@@ -6,13 +6,15 @@
 
 {% block body %}
     <h1>Control PYME - Proyectos | Listado de Proyectos</h1>
-    <button><a href="{% url 'proyectos:index' %}">Volver</a></button>
-    <button><a href="{% url 'proyectos:proyectos_create' %}">Agregar</a></button>
+    <div class="m-3">
+        <a class="btn btn-secondary" href="{% url 'proyectos:index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'proyectos:proyecto_create' %}">Agregar</a>
+    </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
                 <form
-                    action="{% url 'proyectos:proyectos_list' %}"
+                    action="{% url 'proyectos:proyecto_list' %}"
                     method="get"
                     class="input-group"
                 >
@@ -30,7 +32,7 @@
         </div>
     </div>
     <ul>
-        {% for proyecto in proyectos %}
+        {% for proyecto in object_list %}
             <li><h3>Nombre: {{ proyecto.Nombre }}</h3></li>
             {% if proyecto.Cliente %}
                 <p>Cliente: {{ proyecto.Cliente }}</p>
@@ -53,8 +55,10 @@
             {% else %}
                 <p>Estado: "No informado"</p>
             {% endif %}
-            <button><a href="{% url 'proyectos:proyectos_update' proyecto.id %}">Modificar</a></button>
-            <button><a href="{% url 'proyectos:proyectos_delete' proyecto.id %}">Eliminar</a></button>
+            <div class="py-3">
+                <a class="btn btn-primary" href="{% url 'proyectos:proyecto_update' proyecto.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'proyectos:proyecto_delete' proyecto.id %}">Eliminar</a>
+            </div>
         {% endfor %}
     </ul>
 {% endblock body %}

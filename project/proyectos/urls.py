@@ -1,6 +1,6 @@
 from django.urls import path
 
-from proyectos.views import index, proyectos_list, proyectos_create, proyectos_delete, proyectos_update
+from proyectos.views import (index, proyecto_list, proyecto_create, proyecto_delete, proyecto_update)
 
 
 app_name = "proyectos"
@@ -8,8 +8,11 @@ app_name = "proyectos"
 
 urlpatterns = [
     path("", index, name="index"),
-    path("/Proyectos/list", proyectos_list, name="proyectos_list"),
-    path("/Proyectos/create", proyectos_create, name="proyectos_create"),
-    path("/Proyectos/delete/<int:pk>", proyectos_delete, name="proyectos_delete"),
-    path("/Proyectos/update/<int:pk>", proyectos_update, name="proyectos_update"),
+]
+
+urlpatterns += [
+    path("/Proyecto/list", proyecto_list.as_view(), name="proyecto_list"),
+    path("/Proyecto/create", proyecto_create.as_view(), name="proyecto_create"),
+    path("/Proyecto/delete/<int:pk>", proyecto_delete.as_view(), name="proyecto_delete"),
+    path("/Proyecto/update/<int:pk>", proyecto_update.as_view(), name="proyecto_update"),
 ]

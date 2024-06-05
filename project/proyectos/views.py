@@ -1,4 +1,9 @@
-from django.shortcuts import render, redirect
+from typing import Any
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
+from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
+from django.urls import reverse_lazy
+from django.db.models.query import QuerySet
 
 from proyectos.models import Proyecto
 from proyectos.forms import ProyectoForm
@@ -7,40 +12,25 @@ from proyectos.forms import ProyectoForm
 def index(request):
     return render(request, "proyectos/index.html")
 
-def proyectos_list(request):
-    busqueda = request.GET.get("busqueda", None)
-    if busqueda:
-        print(busqueda)
-        consulta = Proyecto.objects.filter(Nombre__icontains=busqueda)
-    else:
-        consulta = Proyecto.objects.all()
-    contexto = {"proyectos": consulta}
-    return render(request, "proyectos/proyectos_list.html", contexto)
+class proyecto_list(LoginRequiredMixin, ListView):
+    model = Proyecto
+    def get_queryset(self) -> QuerySet[Any]:
+        queryset = super().get_queryset()
+        busqueda = self.request.GET.get("busqueda")
+        if busqueda:
+            queryset = Proyecto.objects.filter(Nombre__icontains=busqueda)
+        return queryset
 
-def proyectos_create(request):
-    if request.method == "POST":
-        form = ProyectoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("proyectos:proyectos_list")
-    else:
-        form = ProyectoForm()
-    return render(request, "proyectos/proyectos_create.html", {"form": form})
+class proyecto_create(LoginRequiredMixin, CreateView):
+    model = Proyecto
+    form_class = ProyectoForm
+    success_url = reverse_lazy("proyectos:proyecto_list")
 
-def proyectos_delete(request, pk: int):
-    consulta = Proyecto.objects.get(id=pk)
-    if request.method == "POST":
-        consulta.delete()
-        return redirect("proyectos:proyectos_list")
-    return render(request, "proyectos/proyectos_delete.html", {"proyecto": consulta})
+class proyecto_update(LoginRequiredMixin, UpdateView):
+    model = Proyecto
+    form_class = ProyectoForm
+    success_url = reverse_lazy("proyectos:proyecto_list")
 
-def proyectos_update(request, pk: int):
-    consulta = Proyecto.objects.get(id=pk)
-    if request.method == "POST":
-        form = ProyectoForm(request.POST, instance=consulta)
-        if form.is_valid():
-            form.save()
-            return redirect("proyectos:proyectos_list")
-    else:
-        form = ProyectoForm(instance=consulta)
-    return render(request, "proyectos/proyectos_create.html", {"form": form})
+class proyecto_delete(LoginRequiredMixin, DeleteView):
+    model = Proyecto
+    success_url = reverse_lazy("proyectos:proyecto_list")

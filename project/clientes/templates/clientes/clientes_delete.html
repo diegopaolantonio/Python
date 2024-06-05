@@ -6,10 +6,10 @@
 
 {% block body %}
     <h1>Control PYME - Clientes | Eliminar cliente</h1>
-    <p class="fs-5  fst-italic ">Eliminar "{{ cliente }}"?</p>
-    <form method="post">
+    <p class="fs-5 fst-italic" style="color: red;">Eliminar el cliente: "{{ cliente }}"?</p>
+    <form class="m-1" method="post">
         {% csrf_token %}
-        <button type="submit">Confirmar</button>
+        <button class="btn btn-primary" type="submit">Confirmar</button>
     </form>
-    <a href="{% url 'clientes:index' %}">Volver al inicio de Clientes</a>
+    <a class="btn btn-dark m-1" ref="{% url 'clientes:index' %}">Volver al inicio de Clientes</a>
 {% endblock body %}

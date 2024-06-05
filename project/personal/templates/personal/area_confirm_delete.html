@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Clientes | Eliminar area
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Clientes | Eliminar area</h1>
+    {% if area.pais %}
+        <p class="fs-5 fst-italic" style="color: red;">Eliminar "{{ area.nombre }} - {{area.pais}}"?</p>
+    {% else %}
+        <p class="fs-5 fst-italic" style="color: red;">Eliminar "{{ area.nombre }}"?</p>
+    {% endif %}
+    <form class="m-1" method="post">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">Confirmar</button>
+    </form>
+    <a class="btn btn-dark m-1" href="{% url 'personal:index' %}">Volver al inicio de Personal</a>
+{% endblock body %}

@@ -12,4 +12,4 @@ class AreaForm(forms.ModelForm):
 class PersonalForm(forms.ModelForm):
     class Meta:
         model = models.Personal
-        fields = ["Usuario", "Nombre", "Apellido", "DNI" ,"Area_id"]
+        fields = ["Usuario", "Nombre", "Apellido", "DNI" ,"Area_id", "Avatar"]

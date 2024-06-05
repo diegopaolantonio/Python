@@ -7,6 +7,8 @@
 
 {% block body %}
     <h1>Control PYME - Proyectos</h1>
-    <p>Proyectos</p>
-    <button><a href="{% url 'proyectos:proyectos_list' %}">Ir a lista</a></button>
+    <div class="m-3">
+        <p class="m-1">Proyectos</p>
+        <a class="btn btn-dark" href="{% url 'proyectos:proyecto_list' %}">Ir a lista</a>
+    </div>
 {% endblock body %}

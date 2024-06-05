@@ -6,8 +6,10 @@
 
 {% block body %}
     <h1>Control PYME - Personal | Listado del personal</h1>
-    <button><a href="{% url 'personal:index' %}">Volver</a></button>
-    <button><a href="{% url 'personal:personal_create' %}">Agregar</a></button>
+    <div class="m-3">
+        <a class="btn btn-secondary" href="{% url 'personal:index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'personal:personal_create' %}">Agregar</a>
+    </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
@@ -30,7 +32,7 @@
         </div>
     </div>
     <ul>
-        {% for object in personal %}
+        {% for object in object_list %}
             <li><h3>{{ object }}</h3></li>
             {% if object.Usuario %}
                 <p style="color: blue;">Usuario autorizado</p>
@@ -43,8 +45,10 @@
             {% else %}
                 <p>Area: "No hay registro"</p>
             {% endif %}
-            <button><a href="{% url 'personal:personal_update' object.id %}">Modificar</a></button>
-            <button><a href="{% url 'personal:personal_delete' object.id %}">Eliminar</a></button>
+            <div class="py-3">
+                <a class="btn btn-primary" href="{% url 'personal:personal_update' object.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'personal:personal_delete' object.id %}">Eliminar</a>
+            </div>
         {% endfor %}
     </ul>
 {% endblock body %}

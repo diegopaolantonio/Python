@@ -6,8 +6,13 @@
 
 {% block body %}
     <h1>Control PYME - Administracion</h1>
-    <p>Facturas</p>
-    <button><a href="{% url 'administracion:facturas_list' %}">Ir a lista</a></button>
-    <p>Gastos</p>
-    <button><a href="{% url 'administracion:gastos_list' %}">Ir a lista</a></button>
+    <div class="m-3">
+        <p class="m-1">Facturas</p>
+        <a class="btn btn-dark" href="{% url 'administracion:facturas_list' %}">Ir a lista</a>
+    </div>
+    <div class="m-3">
+        <p class="m-1">Gastos</p>
+        <a class="btn btn-dark" href="{% url 'administracion:gastos_list' %}">Ir a lista</a>
+    </div>
+
 {% endblock body %}
