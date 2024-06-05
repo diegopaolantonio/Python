@@ -11,7 +11,9 @@
         <table>
             {{ form.as_table }}
         </table>
-        <button type="submit" class="btn btn-primary ">Crear usuario</button>
-        <button class="btn btn-secondary"><a href="{% url 'core:index' %}">Cancelar</a></button>
+        <div class="m-3">
+            <button type="submit" class="btn btn-primary ">Crear usuario</button>
+            <a class="btn btn-secondary" href="{% url 'core:index' %}">Cancelar</a>
+        </div>
     </form>
 {% endblock body %}

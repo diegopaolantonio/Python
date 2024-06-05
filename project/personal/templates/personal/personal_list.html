@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}
     Control PYME - Personal | Listado del personal
@@ -45,6 +46,10 @@
             {% else %}
                 <p>Area: "No hay registro"</p>
             {% endif %}
+            {% if object.Avatar %}
+                <img src="{{object.Avatar.url}}" width="50" height="50" alt="avatar">
+            {% endif %}
+
             <div class="py-3">
                 <a class="btn btn-primary" href="{% url 'personal:personal_update' object.id %}">Modificar</a>
                 <a class="btn btn-secondary" href="{% url 'personal:personal_delete' object.id %}">Eliminar</a>

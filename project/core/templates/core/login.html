@@ -12,7 +12,9 @@
             {{ form.as_table }}
         </table>
         <input type="hidden" name="next" value="{% url 'core:index' %}">
-        <button type="submit" class="btn btn-primary ">Iniciar Sesión</button>
-        <button class="btn btn-secondary"><a href="{% url 'core:index' %}">Cancelar</a></button>
+        <div class="m-3">
+            <button type="submit" class="btn btn-primary ">Iniciar Sesión</button>
+            <a class="btn btn-secondary" href="{% url 'core:index' %}">Cancelar</a>
+        </div>
     </form>
 {% endblock body %}
