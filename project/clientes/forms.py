@@ -9,7 +9,7 @@ class UbicacionForm(forms.ModelForm):
         fields = ["pais", "provincia"]
 
 
-class ClientesForm(forms.ModelForm):
+class ClienteForm(forms.ModelForm):
     class Meta:
         model = models.Cliente
         fields = ["RazonSocial", "Cuit", "Ubicacion_id"]

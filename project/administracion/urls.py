@@ -1,6 +1,6 @@
 from django.urls import path
 
-from administracion.views import index, facturas_list, facturas_create, facturas_delete, facturas_update, gastos_list, gastos_create, gastos_delete, gastos_update
+from administracion.views import (index, factura_list, factura_create, factura_delete, factura_update, gasto_list, gasto_create, gasto_delete, gasto_update)
 
 
 app_name = "administracion"
@@ -8,12 +8,18 @@ app_name = "administracion"
 
 urlpatterns = [
     path("", index, name="index"),
-    path("/facturas/list", facturas_list, name="facturas_list"),
-    path("/facturas/create", facturas_create, name="facturas_create"),
-    path("/facturas/delete/<int:pk>", facturas_delete, name="facturas_delete"),
-    path("/facturas/update/<int:pk>", facturas_update, name="facturas_update"),
-    path("/gastos/list", gastos_list, name="gastos_list"),
-    path("/gastos/create", gastos_create, name="gastos_create"),
-    path("/gastos/delete/<int:pk>", gastos_delete, name="gastos_delete"),
-    path("/gastos/update/<int:pk>", gastos_update, name="gastos_update"),
+]
+
+urlpatterns += [
+    path("/factura/list", factura_list.as_view(), name="factura_list"),
+    path("/factura/create", factura_create.as_view(), name="factura_create"),
+    path("/factura/delete/<int:pk>", factura_delete.as_view(), name="factura_delete"),
+    path("/factura/update/<int:pk>", factura_update.as_view(), name="factura_update"),
+]
+
+urlpatterns += [
+    path("/gasto/list", gasto_list.as_view(), name="gasto_list"),
+    path("/gasto/create", gasto_create.as_view(), name="gasto_create"),
+    path("/gasto/delete/<int:pk>", gasto_delete.as_view(), name="gasto_delete"),
+    path("/gasto/update/<int:pk>", gasto_update.as_view(), name="gasto_update"),
 ]

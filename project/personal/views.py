@@ -18,7 +18,7 @@ class area_list(LoginRequiredMixin, ListView):
         queryset = super().get_queryset()
         busqueda = self.request.GET.get("busqueda")
         if busqueda:
-            queryset = Area.objects.filter(Nombre__icontains=busqueda)
+            queryset = Area.objects.filter(nombre__icontains=busqueda)
         return queryset
 
 class area_create(LoginRequiredMixin, CreateView):
@@ -34,15 +34,6 @@ class area_update(LoginRequiredMixin, UpdateView):
 class area_delete(LoginRequiredMixin, DeleteView):
     model = Area
     success_url = reverse_lazy("personal:area_list")
-
-
-
-
-
-
-
-
-
 
 class personal_list(LoginRequiredMixin, ListView):
     model = Personal

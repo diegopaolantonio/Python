@@ -1,20 +1,20 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    Control PYME - Clientes | Listado de clientes
+    Control PYME - Eliminar gasto | Listado de gastos
 {% endblock title %}
 
 {% block body %}
-    <h1>Control PYME - Clientes | Listado de clientes</h1>
+    <h1>Control PYME - Eliminar gasto | Listado de gastos</h1>
     <div class="m-3">
-        <a class="btn btn-secondary" href="{% url 'clientes:index' %}">Volver</a>
-        <a class="btn btn-primary" href="{% url 'clientes:clientes_create' %}">Agregar</a>
+        <a class="btn btn-secondary" href="{% url 'administracion:index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'administracion:gasto_create' %}">Agregar</a>
     </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
                 <form
-                    action="{% url 'clientes:clientes_list' %}"
+                    action="{% url 'administracion:gasto_list' %}"
                     method="get"
                     class="input-group"
                 >
@@ -32,17 +32,17 @@
         </div>
     </div>
     <ul>
-        {% for cliente in clientes %}
-            <li><h3>{{ cliente }}</h3></li>
-            <p>CUIT: {{ cliente.Cuit }}</p>
-            {% if cliente.Ubicacion_id %}
-                <p>Origen: {{ cliente.Ubicacion_id }}</p>
+        {% for gasto in object_list %}
+            <li><h3>{{ gasto }}</h3></li>
+            <p>Monto: {{ gasto.Moneda }} {{ gasto.Monto }}</p>
+            {% if gasto.Detalle %}
+                <p>Detalle: {{ gasto.Detalle }}</p>
             {% else %}
-                <p>Origen: "No hay registro"</p>
+                <p>Detalle: "Sin especificar"</p>
             {% endif %}
             <div class="py-3">
-                <a class="btn btn-primary" href="{% url 'clientes:clientes_update' cliente.id %}">Modificar</a>
-                <a class="btn btn-secondary" href="{% url 'clientes:clientes_delete' cliente.id %}">Eliminar</a>
+                <a class="btn btn-primary" href="{% url 'administracion:gasto_update' gasto.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'administracion:gasto_delete' gasto.id %}">Eliminar</a>
             </div>
         {% endfor %}
     </ul>

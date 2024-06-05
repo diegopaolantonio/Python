@@ -32,7 +32,7 @@
         </div>
     </div>
     <ul>
-        {% for ubicacion in ubicaciones %}
+        {% for ubicacion in object_list %}
             <li><h3>Pais: {{ ubicacion.pais }}</h3></li>
             {% if ubicacion.provincia %}
                 <p>Provincia: {{ ubicacion.provincia }}</p>

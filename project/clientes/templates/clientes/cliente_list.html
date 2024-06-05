@@ -1,20 +1,20 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    Control PYME - Eliminar gasto | Listado de gastos
+    Control PYME - Clientes | Listado de clientes
 {% endblock title %}
 
 {% block body %}
-    <h1>Control PYME - Eliminar gasto | Listado de gastos</h1>
+    <h1>Control PYME - Clientes | Listado de clientes</h1>
     <div class="m-3">
-        <a class="btn btn-secondary" href="{% url 'administracion:index' %}">Volver</a>
-        <a class="btn btn-primary" href="{% url 'administracion:gastos_create' %}">Agregar</a>
+        <a class="btn btn-secondary" href="{% url 'clientes:index' %}">Volver</a>
+        <a class="btn btn-primary" href="{% url 'clientes:cliente_create' %}">Agregar</a>
     </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
                 <form
-                    action="{% url 'administracion:gastos_list' %}"
+                    action="{% url 'clientes:cliente_list' %}"
                     method="get"
                     class="input-group"
                 >
@@ -32,17 +32,17 @@
         </div>
     </div>
     <ul>
-        {% for gasto in gastos %}
-            <li><h3>{{ gasto }}</h3></li>
-            <p>Monto: {{ gasto.Moneda }} {{ gasto.Monto }}</p>
-            {% if gasto.Detalle %}
-                <p>Detalle: {{ gasto.Detalle }}</p>
+        {% for cliente in object_list %}
+            <li><h3>{{ cliente }}</h3></li>
+            <p>CUIT: {{ cliente.Cuit }}</p>
+            {% if cliente.Ubicacion_id %}
+                <p>Origen: {{ cliente.Ubicacion_id }}</p>
             {% else %}
-                <p>Detalle: "Sin especificar"</p>
+                <p>Origen: "No hay registro"</p>
             {% endif %}
             <div class="py-3">
-                <a class="btn btn-primary" href="{% url 'administracion:gastos_update' gasto.id %}">Modificar</a>
-                <a class="btn btn-secondary" href="{% url 'administracion:gastos_delete' gasto.id %}">Eliminar</a>
+                <a class="btn btn-primary" href="{% url 'clientes:cliente_update' cliente.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'clientes:cliente_delete' cliente.id %}">Eliminar</a>
             </div>
         {% endfor %}
     </ul>

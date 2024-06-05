@@ -3,7 +3,7 @@ from django import forms
 from . import models
 
 
-class GastosForm(forms.ModelForm):
+class GastoForm(forms.ModelForm):
     class Meta:
         model = models.Gasto
         fields = [
@@ -16,7 +16,7 @@ class GastosForm(forms.ModelForm):
         ]
 
 
-class FacturasForm(forms.ModelForm):
+class FacturaForm(forms.ModelForm):
     class Meta:
         model = models.Factura
         fields = [

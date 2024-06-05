@@ -8,13 +8,13 @@
     <h1>Control PYME - Administracion | Listado de facturas</h1>
     <div class="m-3">
         <a class="btn btn-secondary" href="{% url 'administracion:index' %}">Volver</a>
-        <a class="btn btn-primary" href="{% url 'administracion:facturas_create' %}">Agregar</a>
+        <a class="btn btn-primary" href="{% url 'administracion:factura_create' %}">Agregar</a>
     </div>
     <div class="container">
         <div class="row mb-3">
             <div class="col-lg-6">
                 <form
-                    action="{% url 'administracion:facturas_list' %}"
+                    action="{% url 'administracion:factura_list' %}"
                     method="get"
                     class="input-group"
                 >
@@ -32,7 +32,7 @@
         </div>
     </div>
     <ul>
-        {% for factura in facturas %}
+        {% for factura in object_list %}
             <li><h3>Factura: {{ factura }}</h3></li>
             <p class="p-0 m-0">Proyectos:</p>
             <ul>
@@ -45,8 +45,8 @@
                 {% endif %}
             </ul>
             <div class="py-3">
-                <a class="btn btn-primary" href="{% url 'administracion:facturas_update' factura.id %}">Modificar</a>
-                <a class="btn btn-secondary" href="{% url 'administracion:facturas_delete' factura.id %}">Eliminar</a>
+                <a class="btn btn-primary" href="{% url 'administracion:factura_update' factura.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'administracion:factura_delete' factura.id %}">Eliminar</a>
             </div>
         {% endfor %}
     </ul>

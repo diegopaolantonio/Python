@@ -1,84 +1,59 @@
-from django.shortcuts import render, redirect
+from typing import Any
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
+from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
+from django.urls import reverse_lazy
+from django.db.models.query import QuerySet
 
 from clientes.models import Cliente, Ubicacion
-from clientes.forms import ClientesForm, UbicacionForm
+from clientes.forms import ClienteForm, UbicacionForm
 
 
 def index(request):
     return render(request, "clientes/index.html")
 
-def clientes_list(request):
-    busqueda = request.GET.get("busqueda", None)
-    if busqueda:
-        print(busqueda)
-        consulta = Cliente.objects.filter(RazonSocial__icontains=busqueda)
-    else:
-        consulta = Cliente.objects.all()
-    contexto = {"clientes": consulta}
-    return render(request, "clientes/clientes_list.html", contexto)
+class cliente_list(LoginRequiredMixin, ListView):
+    model = Cliente
+    def get_queryset(self) -> QuerySet[Any]:
+        queryset = super().get_queryset()
+        busqueda = self.request.GET.get("busqueda")
+        if busqueda:
+            queryset = Cliente.objects.filter(RazonSocial__icontains=busqueda)
+        return queryset
 
-def clientes_create(request):
-    if request.method == "POST":
-        form = ClientesForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("clientes:clientes_list")
-    else:
-        form = ClientesForm()
-    return render(request, "clientes/clientes_create.html", {"form": form})
+class cliente_create(LoginRequiredMixin, CreateView):
+    model = Cliente
+    form_class = ClienteForm
+    success_url = reverse_lazy("clientes:cliente_list")
 
-def clientes_delete(request, pk: int):
-    consulta = Cliente.objects.get(id=pk)
-    if request.method == "POST":
-        consulta.delete()
-        return redirect("clientes:clientes_list")
-    return render(request, "clientes/clientes_delete.html", {"cliente": consulta})
+class cliente_update(LoginRequiredMixin, UpdateView):
+    model = Cliente
+    form_class = ClienteForm
+    success_url = reverse_lazy("clientes:cliente_list")
 
-def clientes_update(request, pk: int):
-    consulta = Cliente.objects.get(id=pk)
-    if request.method == "POST":
-        form = ClientesForm(request.POST, instance=consulta)
-        if form.is_valid():
-            form.save()
-            return redirect("clientes:clientes_list")
-    else:
-        form = ClientesForm(instance=consulta)
-    return render(request, "clientes/clientes_create.html", {"form": form})
+class cliente_delete(LoginRequiredMixin, DeleteView):
+    model = Cliente
+    success_url = reverse_lazy("clientes:cliente_list")
 
-def ubicacion_list(request):
-    busqueda = request.GET.get("busqueda", None)
-    if busqueda:
-        print(busqueda)
-        consulta = Ubicacion.objects.filter(pais__icontains=busqueda)
-    else:
-        consulta = Ubicacion.objects.all()
-    contexto = {"ubicaciones": consulta}
-    return render(request, "clientes/ubicacion_list.html", contexto)
+class ubicacion_list(LoginRequiredMixin, ListView):
+    model = Ubicacion
+    def get_queryset(self) -> QuerySet[Any]:
+        queryset = super().get_queryset()
+        busqueda = self.request.GET.get("busqueda")
+        if busqueda:
+            queryset = Ubicacion.objects.filter(pais__icontains=busqueda)
+        return queryset
 
-def ubicacion_create(request):
-    if request.method == "POST":
-        form = UbicacionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("clientes:ubicacion_list")
-    else:
-        form = UbicacionForm()
-    return render(request, "clientes/ubicacion_create.html", {"form": form})
+class ubicacion_create(LoginRequiredMixin, CreateView):
+    model = Ubicacion
+    form_class = UbicacionForm
+    success_url = reverse_lazy("clientes:ubicacion_list")
 
-def ubicacion_delete(request, pk: int):
-    consulta = Ubicacion.objects.get(id=pk)
-    if request.method == "POST":
-        consulta.delete()
-        return redirect("clientes:ubicacion_list")
-    return render(request, "clientes/ubicacion_delete.html", {"ubicacion": consulta})
+class ubicacion_update(LoginRequiredMixin, UpdateView):
+    model = Ubicacion
+    form_class = UbicacionForm
+    success_url = reverse_lazy("clientes:ubicacion_list")
 
-def ubicacion_update(request, pk: int):
-    consulta = Ubicacion.objects.get(id=pk)
-    if request.method == "POST":
-        form = UbicacionForm(request.POST, instance=consulta)
-        if form.is_valid():
-            form.save()
-            return redirect("clientes:ubicacion_list")
-    else:
-        form = UbicacionForm(instance=consulta)
-    return render(request, "clientes/ubicacion_create.html", {"form": form})
+class ubicacion_delete(LoginRequiredMixin, DeleteView):
+    model = Ubicacion
+    success_url = reverse_lazy("clientes:ubicacion_list")
