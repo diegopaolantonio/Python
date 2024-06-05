@@ -4,8 +4,11 @@
     Control PYME - Registro de nuevo usuario
 {% endblock title %}
 
+{% block bodyTitle %}
+Control PYME - Registro de nuevo usuario
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Registro de nuevo usuario</h1>
     <form method="post">
         {% csrf_token %}
         <table>

@@ -4,8 +4,15 @@
     Control PYME - Proyectos | Crear o modificar proyectos
 {% endblock title %}
 
+{% block bodyTitle %}
+    {% if form.instance.pk %}
+        Control PYME - Proyectos | Modificar proyectos
+    {% else %}
+        Control PYME - Proyectos | Crear proyectos
+    {% endif %}
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Proyectos | Crear o modificar proyectos</h1>
     <form method="post">
         {% csrf_token %}
         <table>

@@ -4,8 +4,11 @@
     Control PYME - Administracion | Eliminar factura
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Administracion | Eliminar factura
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Administracion | Eliminar factura</h1>
     <p class="fs-5 fst-italic" style="color: red;">Eliminar la factura: "{{ factura }}"?</p>
     <form class="m-1" method="post">
         {% csrf_token %}

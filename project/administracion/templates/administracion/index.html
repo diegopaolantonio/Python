@@ -4,15 +4,23 @@
     Control PYME - Administracion
 {% endblock title %}
 
-{% block body %}
-    <h1>Control PYME - Administracion</h1>
-    <div class="m-3">
-        <p class="m-1">Facturas</p>
-        <a class="btn btn-dark" href="{% url 'administracion:factura_list' %}">Ir a lista</a>
-    </div>
-    <div class="m-3">
-        <p class="m-1">Gastos</p>
-        <a class="btn btn-dark" href="{% url 'administracion:gasto_list' %}">Ir a lista</a>
-    </div>
+{% block bodyTitle %}
+    Control PYME - Administracion
+{% endblock bodyTitle %}
 
+{% block body %}
+    <table>
+        <tr>
+            <th class="text-center" style="padding-inline: 40px;">Seccion</th>
+            <th class="text-center" style="padding-inline: 40px;">Accion</th>
+        </tr>
+        <tr>
+            <td class="text-center">Facturas</td>
+            <td class="text-center"><a class="btn btn-dark" href="{% url 'administracion:factura_list' %}">Ir a lista</a></td>
+        </tr>
+        <tr>
+            <td class="text-center">Gastos</td>
+            <td class="text-center"><a class="btn btn-dark" href="{% url 'administracion:gasto_list' %}">Ir a lista</a></td>
+        </tr>
+    </table>
 {% endblock body %}

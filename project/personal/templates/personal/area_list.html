@@ -4,8 +4,11 @@
     Control PYME - Personal | Listado de areas
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Personal | Listado de areas
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Personal | Listado de areas</h1>
     <div class="m-3">
         <a class="btn btn-dark" href="{% url 'personal:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'personal:area_create' %}">Agregar</a>

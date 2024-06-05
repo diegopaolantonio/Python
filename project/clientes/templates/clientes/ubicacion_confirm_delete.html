@@ -4,8 +4,11 @@
     Control PYME - Clientes | Eliminar ubicacion
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Clientes | Eliminar ubicacion
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Clientes | Eliminar ubicacion</h1>
     {% if ubicacion.provincia %}
         <p class="fs-5 fst-italic" style="color: red;">Eliminar "{{ ubicacion.pais }} - {{ubicacion.provincia}}"?</p>
     {% else %}

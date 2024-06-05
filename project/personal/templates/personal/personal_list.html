@@ -5,8 +5,11 @@
     Control PYME - Personal | Listado del personal
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Personal | Listado del personal
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Personal | Listado del personal</h1>
     <div class="m-3">
         <a class="btn btn-dark" href="{% url 'personal:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'personal:personal_create' %}">Agregar</a>
@@ -34,7 +37,11 @@
     </div>
     <ul>
         {% for personal in object_list %}
-            <li><h3>{{ personal }}</h3></li>
+            {% if personal.usuario %}
+                <li><h3 style="color: blue;">{{ personal }}</h3></li>
+            {% else %}
+                <li><h3>{{ personal }}</h3></li>
+            {% endif %}
             <p>DNI: {{ personal.dni }}</p>
             <div class="pb-3">
                 <a class="btn btn-dark" href="{% url 'personal:personal_detail' personal.id %}">Detalle</a>

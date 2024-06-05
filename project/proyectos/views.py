@@ -1,4 +1,5 @@
 from typing import Any
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import (
@@ -15,6 +16,7 @@ from proyectos.models import Proyecto
 from proyectos.forms import ProyectoForm
 
 
+@login_required
 def index(request):
     return render(request, "proyectos/index.html")
 

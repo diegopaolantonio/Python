@@ -4,8 +4,15 @@
     Control PYME - Administracion | Crear o modificar factura
 {% endblock title %}
 
+{% block bodyTitle %}
+    {% if form.instance.pk %}
+        Control PYME - Administracion | Modificar factura
+    {% else %}
+        Control PYME - Administracion | Crear factura
+    {% endif %}
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Administracion | Crear o modificar factura</h1>
     <form method="post">
         {% csrf_token %}
         <table>

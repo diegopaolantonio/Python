@@ -4,8 +4,15 @@
     Control PYME - Administracion | Crear o modificar gasto
 {% endblock title %}
 
+{% block bodyTitle %}
+    {% if form.instance.pk %}
+        Control PYME - Administracion | Modificar gasto
+    {% else %}
+        Control PYME - Administracion | Crear gasto
+    {% endif %}
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Administracion | Crear o modificar gasto</h1>
     <form method="post">
         {% csrf_token %}
         <table>

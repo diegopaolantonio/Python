@@ -4,11 +4,19 @@
     Control PYME - Proyectos
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Proyectos
+{% endblock bodyTitle %}
 
 {% block body %}
-    <h1>Control PYME - Proyectos</h1>
-    <div class="m-3">
-        <p class="m-1">Proyectos</p>
-        <a class="btn btn-dark" href="{% url 'proyectos:proyecto_list' %}">Ir a lista</a>
-    </div>
+    <table>
+        <tr>
+            <th class="text-center" style="padding-inline: 40px;">Seccion</th>
+            <th class="text-center" style="padding-inline: 40px;">Accion</th>
+        </tr>
+        <tr>
+            <td class="text-center">Proyectos</td>
+            <td class="text-center"><a class="btn btn-dark" href="{% url 'proyectos:proyecto_list' %}">Ir a lista</a></td>
+        </tr>
+    </table>
 {% endblock body %}

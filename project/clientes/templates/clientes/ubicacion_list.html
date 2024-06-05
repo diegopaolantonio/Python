@@ -4,8 +4,11 @@
     Control PYME - Clientes | Listado de ubicaciones
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Clientes | Listado de ubicaciones
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Clientes | Listado de ubicaciones</h1>
     <div class="m-3">
         <a class="btn btn-dark" href="{% url 'clientes:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'clientes:ubicacion_create' %}">Agregar</a>

@@ -4,8 +4,15 @@
     Control PYME - Personal | Crear o modificar personal
 {% endblock title %}
 
+{% block bodyTitle %}
+    {% if form.instance.pk %}
+        Control PYME - Personal | Modificar personal
+    {% else %} 
+        Control PYME - Personal | Crear personal
+    {% endif %}
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Personal | Crear o modificar personal</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <table>

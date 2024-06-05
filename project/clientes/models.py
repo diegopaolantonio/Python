@@ -23,6 +23,7 @@ class Cliente(models.Model):
         blank=True,
         verbose_name="Ubicacion de origen",
     )
+    avatar = models.ImageField(upload_to="avatarCliente/", null=True, blank=True)
 
     def __str__(self) -> str:
         return self.razonSocial

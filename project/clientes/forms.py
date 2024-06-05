@@ -19,4 +19,5 @@ class ClienteForm(forms.ModelForm):
             "razonSocial",
             "cuit",
             "ubicacion_id",
+            "avatar",
         ]

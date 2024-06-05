@@ -4,9 +4,16 @@
     Control PYME - Clientes | Crear o modificar clientes
 {% endblock title %}
 
+{% block bodyTitle %}
+    {% if form.instance.pk %}
+        Control PYME - Clientes | Modificar clientes
+    {% else %}
+        Control PYME - Clientes | Crear clientes
+    {% endif %}
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Clientes | Crear o modificar clientes</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
             {{ form.as_table }}

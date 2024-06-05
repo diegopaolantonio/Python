@@ -4,15 +4,23 @@
     Control PYME - Personal
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Personal
+{% endblock bodyTitle %}
 
 {% block body %}
-    <h1>Control PYME - Personal</h1>
-    <div class="m-3">
-        <p class="m-1">Areas</p>
-        <a class="btn btn-dark" href="{% url 'personal:area_list' %}">Ir a lista</a>
-    </div>
-    <div class="m-3">
-        <p class="m-1">Personal</p>
-        <a class="btn btn-dark" href="{% url 'personal:personal_list' %}">Ir a lista</a>
-    </div>
+    <table>
+        <tr>
+            <th class="text-center" style="padding-inline: 40px;">Seccion</th>
+            <th class="text-center" style="padding-inline: 40px;">Accion</th>
+        </tr>
+        <tr>
+            <td class="text-center">Areas</td>
+            <td class="text-center"><a class="btn btn-dark" href="{% url 'personal:area_list' %}">Ir a lista</a></td>
+        </tr>
+        <tr>
+            <td class="text-center">Personal</td>
+            <td class="text-center"><a class="btn btn-dark" href="{% url 'personal:personal_list' %}">Ir a lista</a></td>
+        </tr>
+    </table>
 {% endblock body %}

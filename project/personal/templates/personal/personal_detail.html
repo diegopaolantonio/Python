@@ -5,8 +5,11 @@
     Control PYME - Personal | Detalle del personal
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Personal | Detalle del personal
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Personal | Detalle del personal</h1>
     <h3>{{ personal }}</h3>
     {% if personal.usuario %}
         <p style="color: blue;">Usuario autorizado</p>

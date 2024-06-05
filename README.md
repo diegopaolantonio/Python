@@ -55,7 +55,7 @@
             | dni | DNI del personal agregado |
             | area_id | Foreign Key de **"Area"** |
             | usuario | Usuario del sistema al que esta vinculado el personal |
-            | avatar | Imagen de perfil del personal seleccionado |
+            | avatar | Imagen de perfil del personal |
 
 - Clientes:
     Visualizacion de los **"Clientes"** que esta cargado, y de las **"Ubicaciones"** donde se encuentran, ademas del manejo del CRUD de ambos models.
@@ -86,6 +86,7 @@
             | razonSocial | Nombre del **"cliente"** |
             | cuit | Identificacion unica del **"cliente"** |
             | ubicacion_id | Foreign Key de la **"ubicacion"** donde esta el **"cliente"** |
+            | avatar | Campo de imagen para el logo del cliente |
 
 - Proyectos:
     Visualizacion de los **"Proyectos"** que estan cargados, ademas del manejo del CRUD de ambos models.

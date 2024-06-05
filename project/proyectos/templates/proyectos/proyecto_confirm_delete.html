@@ -4,8 +4,11 @@
     Control PYME - Proyectos | Eliminar proyecto
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Proyectos | Eliminar proyecto
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Proyectos | Eliminar proyecto</h1>
     {% if proyecto.pais %}
         <p class="fs-5 fst-italic" style="color: red;">Eliminar "{{ proyecto.nombre }} - {{proyecto.pais}}"?</p>
     {% else %}

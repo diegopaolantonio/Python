@@ -4,8 +4,11 @@
     Control PYME - Administracion | Eliminar gasto
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Administracion | Eliminar gasto
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Administracion | Eliminar gasto</h1>
     <p class="fs-5 fst-italic" style="color: red;">Eliminar el gasto: "{{ gasto }}"?</p>
     <form class="m-1" method="post">
         {% csrf_token %}

@@ -4,8 +4,11 @@
     Control PYME - Administracion | Listado de facturas
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Administracion | Listado de facturas
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Administracion | Listado de facturas</h1>
     <div class="m-3">
         <a class="btn btn-dark" href="{% url 'administracion:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'administracion:factura_create' %}">Agregar</a>

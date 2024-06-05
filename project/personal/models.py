@@ -28,7 +28,7 @@ class Personal(models.Model):
     usuario = models.OneToOneField(
         User, on_delete=models.DO_NOTHING, related_name="usuario", null=True, blank=True
     )
-    avatar = models.ImageField(upload_to="avatar/", null=True, blank=True)
+    avatar = models.ImageField(upload_to="avatarPersonal/", null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.apellido}, {self.nombre}"

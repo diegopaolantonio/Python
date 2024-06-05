@@ -4,8 +4,15 @@
     Control PYME - Personal | Crear o modificar areas
 {% endblock title %}
 
+{% block bodyTitle %}
+    {% if form.instance.pk %}
+        Control PYME - Personal | Modificar areas
+    {% else %} 
+        Control PYME - Personal | Crear areas
+    {% endif %}
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Personal | Crear o modificar areas</h1>
     <form method="post">
         {% csrf_token %}
         <table>

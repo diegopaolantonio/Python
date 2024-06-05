@@ -4,8 +4,11 @@
     Control PYME - Clientes | Eliminar area
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Clientes | Eliminar area
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Clientes | Eliminar area</h1>
     {% if area.sede %}
         <p class="fs-5 fst-italic" style="color: red;">Eliminar "{{ area }} - {{area.sede}}"?</p>
     {% else %}

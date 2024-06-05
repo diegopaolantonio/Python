@@ -5,26 +5,26 @@
     Control PYME - Inicio
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Inicio
+{% endblock bodyTitle %}
+
 {% block body %}
     <!-- Heading Row-->
     <h3>{{ mensaje }}</h3>
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
         <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/home.webp' %}" alt="Home" /></div>
         <div class="col-lg-5">
-            <h1 class="font-weight-light">Control PYME - Inicio</h1>
-            <p>Aplicacion para el control de clientes, proyectos, personal y facturacion de una PYME</p>
+            <!-- <h1 class="font-weight-light">Control PYME - Inicio</h1> -->
+            <p class="fs-5">El objetivo de esta aplicacion es facilitar la gestion dentro de una PYME o para un Freelance, pudiendo llevar un control del personal que se utiliza, los clientes que se atienden, los proyectos, la facturacion y los gastos.</p>
             <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
         </div>
     </div>
-    <!-- Call to Action-->
-    <!-- <div class="card text-white bg-secondary my-5 py-4 text-center">
-        <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
-    </div> -->
     <!-- Content Row-->
     <div class="row gx-4 gx-lg-5">
-        {% include 'core/components/card.html' with titulo="Personal" texto="Visualizacion del 'Personal' que esta cargado y de las 'Areas' de trabajo definidas, ademas del manejo del CRUD de ambos models." %}
-        {% include 'core/components/card.html' with titulo="Cliente" texto="Visualizacion de los 'Clientes' que esta cargado, y de las 'Ubicaciones' donde se encuentran, ademas del manejo del CRUD de ambos models." %}
-        {% include 'core/components/card.html' with titulo="Proyectos" texto="Visualizacion de los 'Proyectos' que estan cargados, ademas del manejo del CRUD de ambos models." %}
-        {% include 'core/components/card.html' with titulo="Administracion" texto="Visualizacion de los 'Gastos' que estan cargados, y de las 'Facturas' emitidas, ademas del manejo del CRUD de ambos models." %}
+        {% include 'core/components/card.html' with titulo="Personal" texto="Esta seccion esta destinada a la creacion de las 'Areas' de trabajo especificando la sedes de la empresa a la que pertenece, y cargar el 'Personal', los cuales se vinculan al 'Area' de trabajo correspondiente, y se pueden vincular a un usuario generado para tenet acceso al sistema." %}
+        {% include 'core/components/card.html' with titulo="Cliente" texto="Esta seccion esta destinada a generar los 'Clientes' de la empresa, y de la 'Ubicacion' donde se encuentran estos clientes." %}
+        {% include 'core/components/card.html' with titulo="Proyectos" texto="Esta seccion esta destinada a los 'Proyectos' de la empresa, y se vinculan al cliente que nos contrata." %}
+        {% include 'core/components/card.html' with titulo="Administracion" texto="Esta seccion esta destinada a los 'Gastos' de la empresa, y las 'Facturas' emitidas, las cuales se vinculan al proyecto correspondiente." %}
     </div>
 {% endblock body %}

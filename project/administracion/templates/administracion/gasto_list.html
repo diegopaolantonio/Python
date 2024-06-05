@@ -4,8 +4,11 @@
     Control PYME - Eliminar gasto | Listado de gastos
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Eliminar gasto | Listado de gastos
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Eliminar gasto | Listado de gastos</h1>
     <div class="m-3">
         <a class="btn btn-dark" href="{% url 'administracion:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'administracion:gasto_create' %}">Agregar</a>

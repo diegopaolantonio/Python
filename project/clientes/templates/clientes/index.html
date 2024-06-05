@@ -4,15 +4,23 @@
     Control PYME - Clientes
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Clientes
+{% endblock bodyTitle %}
 
 {% block body %}
-    <h1>Control PYME - Clientes</h1>
-    <div class="m-3">
-        <p class="m-1">Clientes</p>
-        <a class="btn btn-dark" href="{% url 'clientes:cliente_list' %}">Ir a lista</a>
-    </div>
-    <div class="m-3">
-        <p class="m-1">Ubicaciones</p>
-        <a class="btn btn-dark" href="{% url 'clientes:ubicacion_list' %}">Ir a lista</a>
-    </div>
+    <table>
+        <tr>
+            <th class="text-center" style="padding-inline: 40px;">Seccion</th>
+            <th class="text-center" style="padding-inline: 40px;">Accion</th>
+        </tr>
+        <tr>
+            <td class="text-center">Clientes</td>
+            <td class="text-center"><a class="btn btn-dark" href="{% url 'clientes:cliente_list' %}">Ir a lista</a></td>
+        </tr>
+        <tr>
+            <td class="text-center">Ubicaciones</td>
+            <td class="text-center"><a class="btn btn-dark" href="{% url 'clientes:ubicacion_list' %}">Ir a lista</a></td>
+        </tr>
+    </table>
 {% endblock body %}

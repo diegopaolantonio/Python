@@ -4,8 +4,11 @@
     Control PYME - Proyectos | Detalle de Proyecto
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Proyectos | Detalle de Proyecto
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Proyectos | Detalle de Proyecto</h1>
     <h3>Nombre: {{ proyecto }}</h3>
     <ul>
         {% if proyecto.cliente %}

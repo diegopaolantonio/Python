@@ -4,8 +4,11 @@
     Control PYME - Proyectos | Listado de Proyectos
 {% endblock title %}
 
+{% block bodyTitle %}
+    Control PYME - Proyectos | Listado de Proyectos
+{% endblock bodyTitle %}
+
 {% block body %}
-    <h1>Control PYME - Proyectos | Listado de Proyectos</h1>
     <div class="m-3">
         <a class="btn btn-dark" href="{% url 'proyectos:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'proyectos:proyecto_create' %}">Agregar</a>
