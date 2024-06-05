@@ -8,7 +8,7 @@
 {% block body %}
     <h1>Control PYME - Personal | Listado del personal</h1>
     <div class="m-3">
-        <a class="btn btn-secondary" href="{% url 'personal:index' %}">Volver</a>
+        <a class="btn btn-dark" href="{% url 'personal:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'personal:personal_create' %}">Agregar</a>
     </div>
     <div class="container">
@@ -33,26 +33,13 @@
         </div>
     </div>
     <ul>
-        {% for object in object_list %}
-            <li><h3>{{ object }}</h3></li>
-            {% if object.Usuario %}
-                <p style="color: blue;">Usuario autorizado</p>
-            {% else %}
-                <p style="color: red;">Usuario no autorizado</p>
-            {% endif %}
-            <p>DNI: {{ object.DNI }}</p>
-            {% if object.Area_id %}
-                <p>Area: {{ object.Area_id }}</p>
-            {% else %}
-                <p>Area: "No hay registro"</p>
-            {% endif %}
-            {% if object.Avatar %}
-                <img src="{{object.Avatar.url}}" width="50" height="50" alt="avatar">
-            {% endif %}
-
-            <div class="py-3">
-                <a class="btn btn-primary" href="{% url 'personal:personal_update' object.id %}">Modificar</a>
-                <a class="btn btn-secondary" href="{% url 'personal:personal_delete' object.id %}">Eliminar</a>
+        {% for personal in object_list %}
+            <li><h3>{{ personal }}</h3></li>
+            <p>DNI: {{ personal.dni }}</p>
+            <div class="pb-3">
+                <a class="btn btn-dark" href="{% url 'personal:personal_detail' personal.id %}">Detalle</a>
+                <a class="btn btn-primary" href="{% url 'personal:personal_update' personal.id %}">Modificar</a>
+                <a class="btn btn-secondary" href="{% url 'personal:personal_delete' personal.id %}">Eliminar</a>
             </div>
         {% endfor %}
     </ul>

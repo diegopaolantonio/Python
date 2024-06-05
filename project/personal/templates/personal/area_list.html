@@ -7,7 +7,7 @@
 {% block body %}
     <h1>Control PYME - Personal | Listado de areas</h1>
     <div class="m-3">
-        <a class="btn btn-secondary" href="{% url 'personal:index' %}">Volver</a>
+        <a class="btn btn-dark" href="{% url 'personal:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'personal:area_create' %}">Agregar</a>
     </div>
     <div class="container">
@@ -33,13 +33,13 @@
     </div>
     <ul>
         {% for area in object_list %}
-            <li><h3>Area: {{ area.nombre }}</h3></li>
-            {% if area.pais %}
-                <p>Pais: {{ area.pais }}</p>
+            <li><h3>Area: {{ area }}</h3></li>
+            {% if area.sede %}
+                <p>Sede: {{ area.sede }}</p>
             {% else %}
-                <p>Pais: "No hay registro"</p>
+                <p>Sede: "No hay registro"</p>
             {% endif %}
-            <div class="py-3">
+            <div class="pb-3">
                 <a class="btn btn-primary" href="{% url 'personal:area_update' area.id %}">Modificar</a>
                 <a class="btn btn-secondary" href="{% url 'personal:area_delete' area.id %}">Eliminar</a>
             </div>

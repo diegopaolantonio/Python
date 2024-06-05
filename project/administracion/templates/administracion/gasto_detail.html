@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Eliminar gasto | Detalle de gasto
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Eliminar gasto | Detalle de gasto</h1>
+    <h3>{{ gasto }}</h3>
+    <ul>
+        {% if gasto.FechaVencimiento %}
+            <li>Fecha de vencimiento: {{ gasto.fechaVencimiento }}</li>
+        {% else %}
+            <li>Fecha de vencimiento: "Sin especificar"</li>
+        {% endif %}
+        <li>Monto: {{ gasto.moneda }} {{ gasto.monto }}</li>
+        {% if gasto.Detalle %}
+            <li>Detalle: {{ gasto.detalle }}</li>
+        {% else %}
+            <li>Detalle: "Sin especificar"</li>
+        {% endif %}
+        <div class="py-3">
+            <a class="btn btn-dark" href="{% url 'administracion:gasto_list' %}">Ir a gastos</a>
+            <a class="btn btn-primary" href="{% url 'administracion:gasto_update' gasto.id %}">Modificar</a>
+            <a class="btn btn-secondary" href="{% url 'administracion:gasto_delete' gasto.id %}">Eliminar</a>
+        </div>
+    </ul>
+{% endblock body %}

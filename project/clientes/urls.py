@@ -1,6 +1,17 @@
 from django.urls import path
 
-from clientes.views import (index, cliente_list, cliente_create, cliente_delete, cliente_update, ubicacion_list, ubicacion_create, ubicacion_delete, ubicacion_update)
+from clientes.views import (
+    index,
+    ClienteList,
+    ClienteCreate,
+    ClienteDetail,
+    ClienteUpdate,
+    ClienteDelete,
+    UbicacionList,
+    UbicacionCreate,
+    UbicacionUpdate,
+    UbicacionDelete,
+)
 
 
 app_name = "clientes"
@@ -11,15 +22,20 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path("/cliente/list", cliente_list.as_view(), name="cliente_list"),
-    path("/cliente/create", cliente_create.as_view(), name="cliente_create"),
-    path("/cliente/delete/<int:pk>", cliente_delete.as_view(), name="cliente_delete"),
-    path("/cliente/update/<int:pk>", cliente_update.as_view(), name="cliente_update"),
+    path("/cliente/list", ClienteList.as_view(), name="cliente_list"),
+    path("/cliente/create", ClienteCreate.as_view(), name="cliente_create"),
+    path("/cliente/detail/<int:pk>", ClienteDetail.as_view(), name="cliente_detail"),
+    path("/cliente/update/<int:pk>", ClienteUpdate.as_view(), name="cliente_update"),
+    path("/cliente/delete/<int:pk>", ClienteDelete.as_view(), name="cliente_delete"),
 ]
 
 urlpatterns += [
-    path("/ubicacion/list", ubicacion_list.as_view(), name="ubicacion_list"),
-    path("/ubicacion/create", ubicacion_create.as_view(), name="ubicacion_create"),
-    path("/ubicacion/delete/<int:pk>", ubicacion_delete.as_view(), name="ubicacion_delete"),
-    path("/ubicacion/update/<int:pk>", ubicacion_update.as_view(), name="ubicacion_update"),
+    path("/ubicacion/list", UbicacionList.as_view(), name="ubicacion_list"),
+    path("/ubicacion/create", UbicacionCreate.as_view(), name="ubicacion_create"),
+    path(
+        "/ubicacion/update/<int:pk>", UbicacionUpdate.as_view(), name="ubicacion_update"
+    ),
+    path(
+        "/ubicacion/delete/<int:pk>", UbicacionDelete.as_view(), name="ubicacion_delete"
+    ),
 ]

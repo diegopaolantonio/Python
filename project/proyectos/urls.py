@@ -1,6 +1,13 @@
 from django.urls import path
 
-from proyectos.views import (index, proyecto_list, proyecto_create, proyecto_delete, proyecto_update)
+from proyectos.views import (
+    index,
+    ProyectoList,
+    ProyectoCreate,
+    ProyectoDetail,
+    ProyectoUpdate,
+    ProyectoDelete,
+)
 
 
 app_name = "proyectos"
@@ -11,8 +18,9 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path("/Proyecto/list", proyecto_list.as_view(), name="proyecto_list"),
-    path("/Proyecto/create", proyecto_create.as_view(), name="proyecto_create"),
-    path("/Proyecto/delete/<int:pk>", proyecto_delete.as_view(), name="proyecto_delete"),
-    path("/Proyecto/update/<int:pk>", proyecto_update.as_view(), name="proyecto_update"),
+    path("/proyecto/list", ProyectoList.as_view(), name="proyecto_list"),
+    path("/proyecto/create", ProyectoCreate.as_view(), name="proyecto_create"),
+    path("/proyecto/detail/<int:pk>", ProyectoDetail.as_view(), name="proyecto_detail"),
+    path("/proyecto/update/<int:pk>", ProyectoUpdate.as_view(), name="proyecto_update"),
+    path("/proyecto/delete/<int:pk>", ProyectoDelete.as_view(), name="proyecto_delete"),
 ]

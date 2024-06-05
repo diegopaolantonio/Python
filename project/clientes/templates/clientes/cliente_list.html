@@ -7,7 +7,7 @@
 {% block body %}
     <h1>Control PYME - Clientes | Listado de clientes</h1>
     <div class="m-3">
-        <a class="btn btn-secondary" href="{% url 'clientes:index' %}">Volver</a>
+        <a class="btn btn-dark" href="{% url 'clientes:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'clientes:cliente_create' %}">Agregar</a>
     </div>
     <div class="container">
@@ -34,13 +34,8 @@
     <ul>
         {% for cliente in object_list %}
             <li><h3>{{ cliente }}</h3></li>
-            <p>CUIT: {{ cliente.Cuit }}</p>
-            {% if cliente.Ubicacion_id %}
-                <p>Origen: {{ cliente.Ubicacion_id }}</p>
-            {% else %}
-                <p>Origen: "No hay registro"</p>
-            {% endif %}
             <div class="py-3">
+                <a class="btn btn-dark" href="{% url 'clientes:cliente_detail' cliente.id %}">Detalle</a>
                 <a class="btn btn-primary" href="{% url 'clientes:cliente_update' cliente.id %}">Modificar</a>
                 <a class="btn btn-secondary" href="{% url 'clientes:cliente_delete' cliente.id %}">Eliminar</a>
             </div>

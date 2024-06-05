@@ -7,7 +7,7 @@
 {% block body %}
     <h1>Control PYME - Clientes | Listado de ubicaciones</h1>
     <div class="m-3">
-        <a class="btn btn-secondary" href="{% url 'clientes:index' %}">Volver</a>
+        <a class="btn btn-dark" href="{% url 'clientes:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'clientes:ubicacion_create' %}">Agregar</a>
     </div>
     <div class="container">
@@ -37,9 +37,9 @@
             {% if ubicacion.provincia %}
                 <p>Provincia: {{ ubicacion.provincia }}</p>
             {% else %}
-                <p>Provincia: "No hay registro"</p>
+                <p>Provincia: "Sin especificar"</p>
             {% endif %}
-            <div class="py-3">
+            <div class="pb-3">
                 <a class="btn btn-primary" href="{% url 'clientes:ubicacion_update' ubicacion.id %}">Modificar</a>
                 <a class="btn btn-secondary" href="{% url 'clientes:ubicacion_delete' ubicacion.id %}">Eliminar</a>
             </div>

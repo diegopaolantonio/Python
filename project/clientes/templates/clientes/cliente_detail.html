@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Clientes | Detalle de cliente
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Clientes | Detalle de cliente</h1>
+    <h3>{{ cliente }}</h3>
+    <ul>
+        {% if cliente.cuit %}
+            <li>CUIT: {{ cliente.cuit }}</li>
+        {% else %}
+            <li>CUIT: "No hay registro"</li>
+        {% endif %}
+        {% if cliente.ubicacion_id %}
+            <li>Origen:</li>
+            <ul>
+                <li>Pais: {{ cliente.ubicacion_id.pais }}</li>
+                {% if cliente.ubicacion_id.provincia %}
+                    <li>Provincia: {{ cliente.ubicacion_id.provincia }}</li>
+                {% else %}
+                    <li>Provincia: "Sin especificar"</li>
+                {% endif %}
+            </ul>
+        {% else %}
+            <li>Origen: "No hay registro"</li>
+        {% endif %}
+    </ul>
+    <div class="py-3">
+        <a class="btn btn-dark" href="{% url 'clientes:cliente_list' %}">Ir a clientes</a>
+        <a class="btn btn-primary" href="{% url 'clientes:cliente_update' cliente.id %}">Modificar</a>
+        <a class="btn btn-secondary" href="{% url 'clientes:cliente_delete' cliente.id %}">Eliminar</a>
+    </div>
+{% endblock body %}

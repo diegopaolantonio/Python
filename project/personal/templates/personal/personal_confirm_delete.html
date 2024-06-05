@@ -11,5 +11,5 @@
         {% csrf_token %}
         <button class="btn btn-primary" type="submit">Confirmar</button>
     </form>
-    <a class="btn btn-dark m-1" href="{% url 'personal:index' %}">Volver al inicio de Personal</a>
+    <a class="btn btn-dark m-1" href="{% url 'personal:personal_list' %}">Volver al inicio de Personal</a>
 {% endblock body %}

@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Proyectos | Detalle de Proyecto
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Proyectos | Detalle de Proyecto</h1>
+    <h3>Nombre: {{ proyecto }}</h3>
+    <ul>
+        {% if proyecto.cliente %}
+            <li>Cliente: {{ proyecto.cliente }}</li>
+        {% else %}
+            <li>Cliente: "No hay registro"</li>
+        {% endif %}
+        {% if proyecto.pais %}
+            <li>Pais: {{ proyecto.pais }}</li>
+        {% else %}
+            <li>Pais: "No hay registro"</li>
+        {% endif %}
+        <li>Fecha de inicio: {{ proyecto.fechaInicio }}</li>
+        {% if proyecto.fechaFin %}
+            <li>Fecha de fin: {{ proyecto.fechaFin }}</li>
+        {% else %}
+            <li>Fecha de fin: "Sin especificar"</li>
+        {% endif %}
+        {% if proyecto.Estado %}
+            <li>Estado: {{ proyecto.estado }}</li>
+        {% else %}
+            <li>Estado: "Sin especificar"</li>
+        {% endif %}
+        <div class="py-3">
+            <a class="btn btn-dark" href="{% url 'proyectos:proyecto_list' %}">Ir a proyectos</a>
+            <a class="btn btn-primary" href="{% url 'proyectos:proyecto_update' proyecto.id %}">Modificar</a>
+            <a class="btn btn-secondary" href="{% url 'proyectos:proyecto_delete' proyecto.id %}">Eliminar</a>
+        </div>
+    </ul>
+{% endblock body %}

@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Control PYME - Administracion | Detalle de factura
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Administracion | Detalle de factura</h1>
+        <h3>Nro: {{ factura.numero }}</h3>
+        <ul>
+            <li>
+                <p class="p-0 m-0">Proyectos:</p>
+                <ul>
+                    {% if factura.proyecto.all %}
+                        {% for proyecto in factura.proyecto.all %}
+                            <li>{{ proyecto }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>"No hay registro"</li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li>Fecha de emision: {{ factura.fechaEmision }}</li>
+            {% if factura.fechaVencimiento %}
+                <li>Fecha de vencimiento: {{ factura.fechaVencimiento }}</li>
+            {% else %}
+                <li>Fecha de vencimiento: "Sin especificar"</li>
+            {% endif %}
+            <li>Monto: {{ factura.moneda }} {{ factura.monto }}</li>
+            {% if factura.detalle %}
+                <li>Detalle: {{ factura.detalle }}</li>
+            {% else %}
+                <li>Detalle: "No hay registro"</li>
+            {% endif %}
+        </ul>
+        <div class="py-3">
+            <a class="btn btn-dark" href="{% url 'administracion:factura_list' %}">Ir a facturas</a>
+            <a class="btn btn-primary" href="{% url 'administracion:factura_update' factura.id %}">Modificar</a>
+            <a class="btn btn-secondary" href="{% url 'administracion:factura_delete' factura.id %}">Eliminar</a>
+        </div>
+{% endblock body %}

@@ -30,29 +30,32 @@
     | URLs | Descricion |
     | -----------  | ----------- |
     | /personal | Seleccion entre visualizar **"Personal"** y **"Area"** |
-    | /personal/Area/list | Visualizar las **"Areas"**, y seleccionar la accion del CRUD para realizar |
-    | /personal/Area/create | Crear un **"Area"** |
-    | /personal/Area/delete/`id` | Eliminar el **"Area"** seleccionada por el `id` |
-    | /personal/Area/update/`id` | Modificar el **"Area"** seleccionada por el `id` |
+    | /personal/area/list | Visualizar las **"Areas"**, y seleccionar la accion del CRUD para realizar |
+    | /personal/area/create | Crear un **"Area"** |
+    | /personal/area/update/`id` | Modificar el **"Area"** seleccionada por el `id` |
+    | /personal/area/delete/`id` | Eliminar el **"Area"** seleccionada por el `id` |
     | /personal/personal/list | Visualizar las **"Personal"**, y seleccionar la accion del CRUD para realizar |
     | /personal/personal/create | Crear un **"Personal"** |
-    | /personal/personal/delete/`id` | Eliminar el **"Personal"** seleccionado por el `id` |
+    | /personal/personal/detail/`id` | Visualiza el detallde del **"Personal"** seleccionado por el `id` |
     | /personal/personal/update/`id` | Modificar el **"Personal"** seleccionado por el `id` |
-
+    | /personal/personal/delete/`id` | Eliminar el **"Personal"** seleccionado por el `id` |
+    
     - Models
         - Area
             | Item | Descricion |
             | -----------  | ----------- |
             | nombre | Nombre del **"Area"** |
-            | pais | Pais de la sucursal donde esta el **"Area"** |
+            | sede | Sede de la sucursal donde esta el **"Area"** |
 
         - Personal
             | Item | Descricion |
             | -----------  | ----------- |
-            | Nombre | Nombre del personal |
-            | Apellido | Apellido del personal |
-            | DNI | DNI del personal agregado |
-            | Area_id | Foreign Key de **"Area"** |
+            | nombre | Nombre del personal |
+            | apellido | Apellido del personal |
+            | dni | DNI del personal agregado |
+            | area_id | Foreign Key de **"Area"** |
+            | usuario | Usuario del sistema al que esta vinculado el personal |
+            | avatar | Imagen de perfil del personal seleccionado |
 
 - Clientes:
     Visualizacion de los **"Clientes"** que esta cargado, y de las **"Ubicaciones"** donde se encuentran, ademas del manejo del CRUD de ambos models.
@@ -62,12 +65,13 @@
     | /clientes | Seleccion entre visualizar **"Ubicacion"** y **"Cliente"** |
     | /clientes/ubicacion/list | Visualizar las **"Ubicacion"**, y seleccionar la accion del CRUD para realizar |
     | /clientes/ubicacion/create | Crear una **"Ubicacion"** |
-    | /clientes/ubicacion/delete/`id` | Eliminar la **"Ubicacion"** seleccionada por el `id` |
     | /clientes/ubicacion/update/`id` | Modificar la **"Ubicacion"** seleccionada por el `id` |
-    | /clientes/clientes/list | Visualizar las **"Cliente"**, y seleccionar la accion del CRUD para realizar |
-    | /clientes/clientes/create | Crear un **"Cliente"** |
-    | /clientes/clientes/delete/`id` | Eliminar el **"Cliente"** seleccionado por el `id` |
-    | /clientes/clientes/update/`id` | Modificar el **"Cliente"** seleccionado por el `id` |
+    | /clientes/ubicacion/delete/`id` | Eliminar la **"Ubicacion"** seleccionada por el `id` |
+    | /clientes/cliente/list | Visualizar las **"Cliente"**, y seleccionar la accion del CRUD para realizar |
+    | /clientes/cliente/create | Crear un **"Cliente"** |
+    | /clientes/cliente/detail/`id` | Vizualiza el detalle del **"Cliente"** seleccionado por el `id` |
+    | /clientes/cliente/update/`id` | Modificar el **"Cliente"** seleccionado por el `id` |
+    | /clientes/cliente/delete/`id` | Eliminar el **"Cliente"** seleccionado por el `id` |
 
     - Models
         - Ubicacion
@@ -79,9 +83,9 @@
         - Cliente
             | Item | Descricion |
             | -----------  | ----------- |
-            | RazonSocial | Nombre del **"cliente"** |
-            | Cuit | Identificacion unica del **"cliente"** |
-            | Ubicacion_id | Foreign Key de la **"ubicacion"** donde esta el **"cliente"** |
+            | razonSocial | Nombre del **"cliente"** |
+            | cuit | Identificacion unica del **"cliente"** |
+            | ubicacion_id | Foreign Key de la **"ubicacion"** donde esta el **"cliente"** |
 
 - Proyectos:
     Visualizacion de los **"Proyectos"** que estan cargados, ademas del manejo del CRUD de ambos models.
@@ -89,20 +93,22 @@
     | URLs | Descricion |
     | -----------  | ----------- |
     | /proyectos | Seleccion para visualizar **"Proyecto"** |
-    | /proyectos/ubicacion/list | Visualizar las **"Proyecto"**, y seleccionar la accion del CRUD para realizar |
-    | /proyectos/ubicacion/create | Crear una **"Proyecto"** |
-    | /proyectos/ubicacion/delete/`id` | Eliminar la **"Proyecto"** seleccionada por el `id` |
-    | /proyectos/ubicacion/update/`id` | Modificar la **"Proyecto"** seleccionada por el `id` |
+    | /proyectos/proyecto/list | Visualizar las **"Proyecto"**, y seleccionar la accion del CRUD para realizar |
+    | /proyectos/proyecto/create | Crear una **"Proyecto"** |
+    | /proyectos/proyecto/detail/`id` | Visualiza el detalle del **"Proyecto"** seleccionado por el `id` |
+    | /proyectos/proyecto/update/`id` | Modificar la **"Proyecto"** seleccionado por el `id` |
+    | /proyectos/proyecto/delete/`id` | Eliminar la **"Proyecto"** seleccionado por el `id` |
 
     - Models
         - Proyecto
             | Item | Descricion |
             | -----------  | ----------- |
-            | Nombre | Nombre del **"proyecto"** |
-            | Pais | Pais en el que se ejecuta |
-            | FechaInicio | Fecha de inicio del **"proyecto"** |
-            | FechaFin | Fecha de finalizacion del **"proyecto"** |
-            | Estado | Estado en el que se encuentra el **"proyecto"** |
+            | nombre | Nombre del **"proyecto"** |
+            | cliente | Cliente al que se le esta desarrollando el **proyecto** |
+            | pais | Pais en el que se ejecuta |
+            | fechaInicio | Fecha de inicio del **"proyecto"** |
+            | fechaFin | Fecha de finalizacion del **"proyecto"** |
+            | estado | Estado en el que se encuentra el **"proyecto"** |
 
 - Administracion:
     Visualizacion de los **"Gastos"** que estan cargados, y de las **"Facturas"** emitidas, ademas del manejo del CRUD de ambos models.
@@ -110,14 +116,16 @@
     | URLs | Descricion |
     | -----------  | ----------- |
     | /administracion | Seleccion entre visualizar **"Gasto"** y **"Factura"** |
-    | /administracion/gastos/list | Visualizar los **"Gastos"**, y seleccionar la accion del CRUD para realizar |
-    | /administracion/gastos/create | Crear una **"Gasto"** |
-    | /administracion/gastos/delete/`id` | Eliminar el **"Gasto"** seleccionado por el `id` |
-    | /administracion/gastos/update/`id` | Modificar el **"Gasto"** seleccionado por el `id` |
-    | /administracion/facturas/list | Visualizar las **"Facturas"**, y seleccionar la accion del CRUD para realizar |
-    | /administracion/facturas/create | Crear una **"Factura"** |
-    | /administracion/facturas/delete/`id` | Eliminar la **"Factura"** seleccionada por el `id` |
-    | /administracion/facturas/update/`id` | Modificar la **"Factura"** seleccionada por el `id` |
+    | /administracion/gasto/list | Visualizar los **"Gastos"**, y seleccionar la accion del CRUD para realizar |
+    | /administracion/gasto/create | Crear una **"Gasto"** |
+    | /administracion/gasto/detail/`id` | Visualiza el detalle del **"Gasto"** seleccionado por el `id` |
+    | /administracion/gasto/update/`id` | Modificar el **"Gasto"** seleccionado por el `id` |
+    | /administracion/gasto/delete/`id` | Eliminar el **"Gasto"** seleccionado por el `id` |
+    | /administracion/factura/list | Visualizar las **"Facturas"**, y seleccionar la accion del CRUD para realizar |
+    | /administracion/factura/create | Crear una **"Factura"** |
+    | /administracion/factura/detail/`id` | Visualiza el detalle de la **"Factura"** seleccionada por el `id` |
+    | /administracion/factura/update/`id` | Modificar la **"Factura"** seleccionada por el `id` |
+    | /administracion/factura/delete/`id` | Eliminar la **"Factura"** seleccionada por el `id` |
 
     - Models
         - Gasto
@@ -134,7 +142,6 @@
             | Item | Descricion |
             | -----------  | ----------- |
             | Numero | Numero de la **"factura"** emitida |
-            | Cliente | Cliente al que fue emitida |
             | Proyecto | Proyecto por el que se emite la **"factura"** |
             | FechaEmision | Fecha en que se realizo la **"factura"** |
             | FechaVencimiento | Fecha de vencimiento del pago |

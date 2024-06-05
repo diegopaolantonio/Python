@@ -7,7 +7,7 @@
 {% block body %}
     <h1>Control PYME - Eliminar gasto | Listado de gastos</h1>
     <div class="m-3">
-        <a class="btn btn-secondary" href="{% url 'administracion:index' %}">Volver</a>
+        <a class="btn btn-dark" href="{% url 'administracion:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'administracion:gasto_create' %}">Agregar</a>
     </div>
     <div class="container">
@@ -34,13 +34,8 @@
     <ul>
         {% for gasto in object_list %}
             <li><h3>{{ gasto }}</h3></li>
-            <p>Monto: {{ gasto.Moneda }} {{ gasto.Monto }}</p>
-            {% if gasto.Detalle %}
-                <p>Detalle: {{ gasto.Detalle }}</p>
-            {% else %}
-                <p>Detalle: "Sin especificar"</p>
-            {% endif %}
             <div class="py-3">
+                <a class="btn btn-dark" href="{% url 'administracion:gasto_detail' gasto.id %}">Detalle</a>
                 <a class="btn btn-primary" href="{% url 'administracion:gasto_update' gasto.id %}">Modificar</a>
                 <a class="btn btn-secondary" href="{% url 'administracion:gasto_delete' gasto.id %}">Eliminar</a>
             </div>

@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    Control PYME - Personal | Detalle del personal
+{% endblock title %}
+
+{% block body %}
+    <h1>Control PYME - Personal | Detalle del personal</h1>
+    <h3>{{ personal }}</h3>
+    {% if personal.usuario %}
+        <p style="color: blue;">Usuario autorizado</p>
+    {% else %}
+        <p style="color: red;">Usuario no autorizado</p>
+    {% endif %}
+    {% if personal.avatar %}
+        <img src="{{personal.avatar.url}}" width="100" height="100" alt="avatar">
+    {% endif %}
+    <ul>
+        <li>DNI: {{ personal.dni }}</li>
+        <li>Area:</li>
+        <ul>
+            {% if personal.area_id %}
+                <li>Area: {{ personal.area_id }}</li>
+                {% if personal.area_id.sede %}
+                    <li>Sede: {{ personal.area_id.sede }}</li>
+                {% else %}
+                    <li>Sede: "Sin especificar"</li>
+                {% endif %}
+            {% else %}
+                <li>"No hay registro"</li>
+            {% endif %}
+        </ul>
+    </ul>
+    <div class="py-3">
+        <a class="btn btn-dark" href="{% url 'personal:personal_list' %}">Ir a personal</a>
+        <a class="btn btn-primary" href="{% url 'personal:personal_update' personal.id %}">Modificar</a>
+        <a class="btn btn-secondary" href="{% url 'personal:personal_delete' personal.id %}">Eliminar</a>
+    </div>
+{% endblock body %}

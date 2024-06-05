@@ -7,12 +7,12 @@ class GastoForm(forms.ModelForm):
     class Meta:
         model = models.Gasto
         fields = [
-            "Referencia",
-            "FechaEmision",
-            "FechaVencimiento",
-            "Moneda",
-            "Monto",
-            "Detalle",
+            "referencia",
+            "fechaEmision",
+            "fechaVencimiento",
+            "moneda",
+            "monto",
+            "detalle",
         ]
 
 
@@ -20,11 +20,11 @@ class FacturaForm(forms.ModelForm):
     class Meta:
         model = models.Factura
         fields = [
-            "Numero",
-            "Proyecto",
-            "FechaEmision",
-            "FechaVencimiento",
-            "Moneda",
-            "Monto",
-            "Detalle",
+            "numero",
+            "proyecto",
+            "fechaEmision",
+            "fechaVencimiento",
+            "moneda",
+            "monto",
+            "detalle",
         ]

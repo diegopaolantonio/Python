@@ -7,7 +7,7 @@
 {% block body %}
     <h1>Control PYME - Proyectos | Listado de Proyectos</h1>
     <div class="m-3">
-        <a class="btn btn-secondary" href="{% url 'proyectos:index' %}">Volver</a>
+        <a class="btn btn-dark" href="{% url 'proyectos:index' %}">Volver</a>
         <a class="btn btn-primary" href="{% url 'proyectos:proyecto_create' %}">Agregar</a>
     </div>
     <div class="container">
@@ -33,29 +33,14 @@
     </div>
     <ul>
         {% for proyecto in object_list %}
-            <li><h3>Nombre: {{ proyecto.Nombre }}</h3></li>
-            {% if proyecto.Cliente %}
-                <p>Cliente: {{ proyecto.Cliente }}</p>
-            {% else %}
-                <p>Cliente: "No hay registro"</p>
-            {% endif %}
-            {% if proyecto.Pais %}
-                <p>Pais: {{ proyecto.Pais }}</p>
-            {% else %}
-                <p>Pais: "No hay registro"</p>
-            {% endif %}
-            <p>Fecha de inicio: {{ proyecto.FechaInicio }}</p>
-            {% if proyecto.FechaFin %}
-                <p>Fecha de fin: {{ proyecto.FechaFin }}</p>
-            {% else %}
-                <p>Fecha de fin: "No informado"</p>
-            {% endif %}
-            {% if proyecto.Estado %}
-                <p>Estado: {{ proyecto.Estado }}</p>
+            <li><h3>Nombre: {{ proyecto.nombre }}</h3></li>
+            {% if proyecto.estado %}
+                <p>Estado: {{ proyecto.estado }}</p>
             {% else %}
                 <p>Estado: "No informado"</p>
             {% endif %}
             <div class="py-3">
+                <a class="btn btn-dark" href="{% url 'proyectos:proyecto_detail' proyecto.id %}">Detalle</a>
                 <a class="btn btn-primary" href="{% url 'proyectos:proyecto_update' proyecto.id %}">Modificar</a>
                 <a class="btn btn-secondary" href="{% url 'proyectos:proyecto_delete' proyecto.id %}">Eliminar</a>
             </div>

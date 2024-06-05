@@ -6,10 +6,20 @@ from . import models
 class AreaForm(forms.ModelForm):
     class Meta:
         model = models.Area
-        fields = ["nombre", "pais"]
+        fields = [
+            "nombre",
+            "sede",
+        ]
 
 
 class PersonalForm(forms.ModelForm):
     class Meta:
         model = models.Personal
-        fields = ["Usuario", "Nombre", "Apellido", "DNI" ,"Area_id", "Avatar"]
+        fields = [
+            "usuario",
+            "nombre",
+            "apellido",
+            "dni",
+            "area_id",
+            "avatar",
+        ]
