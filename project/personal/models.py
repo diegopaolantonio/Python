@@ -26,7 +26,7 @@ class Personal(models.Model):
         verbose_name="Area de trabajo",
     )
     usuario = models.OneToOneField(
-        User, on_delete=models.DO_NOTHING, related_name="usuario", null=True, blank=True
+        User, on_delete=models.SET_NULL, related_name="usuario", null=True, blank=True
     )
     avatar = models.ImageField(upload_to="avatarPersonal/", null=True, blank=True)
 

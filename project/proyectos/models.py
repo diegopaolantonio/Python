@@ -6,7 +6,7 @@ class Proyecto(models.Model):
     nombre = models.CharField(max_length=100)
     cliente = models.OneToOneField(
         Cliente,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.SET_NULL,
         related_name="proyecto_cliente",
         null=True,
         blank=True,
