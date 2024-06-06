@@ -15,12 +15,12 @@
             <th class="text-center" style="padding-inline: 40px;">Accion</th>
         </tr>
         <tr>
-            <td class="text-center">Clientes</td>
-            <td class="text-center"><a class="btn btn-dark" href="{% url 'clientes:cliente_list' %}">Ir a lista</a></td>
-        </tr>
-        <tr>
             <td class="text-center">Ubicaciones</td>
             <td class="text-center"><a class="btn btn-dark" href="{% url 'clientes:ubicacion_list' %}">Ir a lista</a></td>
+        </tr>
+        <tr>
+            <td class="text-center">Clientes</td>
+            <td class="text-center"><a class="btn btn-dark" href="{% url 'clientes:cliente_list' %}">Ir a lista</a></td>
         </tr>
     </table>
 {% endblock body %}

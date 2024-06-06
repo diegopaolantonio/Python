@@ -11,13 +11,13 @@
 {% block body %}
     <h3>{{ gasto }}</h3>
     <ul>
-        {% if gasto.FechaVencimiento %}
+        {% if gasto.fechaVencimiento %}
             <li>Fecha de vencimiento: {{ gasto.fechaVencimiento }}</li>
         {% else %}
             <li>Fecha de vencimiento: "Sin especificar"</li>
         {% endif %}
         <li>Monto: {{ gasto.moneda }} {{ gasto.monto }}</li>
-        {% if gasto.Detalle %}
+        {% if gasto.detalle %}
             <li>Detalle: {{ gasto.detalle }}</li>
         {% else %}
             <li>Detalle: "Sin especificar"</li>
