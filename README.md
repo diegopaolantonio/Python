@@ -1,12 +1,50 @@
 # Gestion PYME
 
->Alumno: Paolantonio Diego Gabriel
->Curso: Python
->Comision: 54140
+>**Alumno: Paolantonio Diego Gabriel**
+>**Curso: Python**
+>**Comision: 54140**
 
 ## Descripcion de la aplicacion
 
->El objetivo de esta aplicacion es facilitar la gestion dentro de una PYME o para un Freelance, pudiendo llevar un control del personal que se utiliza, los clientes que se atienden, los proyectos, la facturacion y los gastos.
+El objetivo de esta aplicacion es facilitar la gestion dentro de una PYME o para un Freelance, pudiendo llevar un control del personal que se utiliza, los clientes que se atienden, los proyectos, la facturacion y los gastos.
+
+### Secciones
+
+- ***Login***
+    Opcion para ingresar a la pagina con un usuario y tener acceso completo al sistema.
+    Para verlo no debe estar logueado con ningun usuario.
+
+- ***Logout***
+    Salir del usuario.
+    Para verlo  debe estar logueado con algun usuario.
+
+- ***Registrar***
+    Crear un usuario nuevo.
+    Para verlo  debe estar logueado con algun usuario.
+
+- ***Inicio***
+    Pagina de informacion general
+    No necesita estar logueado para ver esta seccion.
+
+- ***Nosotros***
+    Pagina sobre la aplicacion y sobre el desarrollador
+    No necesita estar logueado para ver esta seccion.
+
+- ***Personal***
+    Pagina con el CRUD para las **Areas** de trabajo y el **Personal** de la empresa.
+    Para verlo  debe estar logueado con algun usuario.
+
+- ***Cliente***
+    Pagina con el CRUD de las **Ubicaciones** y los **Clientes** de la empresa.
+    Para verlo  debe estar logueado con algun usuario.
+
+- ***Proyectos***
+    Pagina con el CRUD de los **Proyectos**.
+    Para verlo  debe estar logueado con algun usuario.
+
+- ***Administracion***
+    Pagina con el CRUD de los **Gastos** y **Facturas** de la empresa.
+    Para verlo  debe estar logueado con algun usuario.
 
 ## Video de muestra de funcionamiento
 
@@ -19,10 +57,10 @@
 - Core:
     Informacion sobre la aplicacion
 
-| URLs | Descricion |
-| -----------  | ----------- |
-| / | Pagina principal |
-| /nosotros | Informacion de la empresa |
+    | URLs | Descricion |
+    | -----------  | ----------- |
+    | / | Pagina principal |
+    | /nosotros | Informacion de la empresa |
 
 - Personal:
     Visualizacion del **"Personal"** que esta cargado y de las **"Areas"** de trabajo definidas, ademas del manejo del CRUD de ambos models.
@@ -153,8 +191,11 @@
 ## Mejoras futuras
 
 - Mejorar la interface grafica.
+- Dar mas informacio en las secciones.
 - Plantear mas secciones en la aplicacion.
+- Generar distintos niveles de acceso a la aplicacion.
 
 ## Problemas conocidos
 
 - No es una una interlaz intuitiva.
+- Los usuarios logeados tienen acceso total a la aplicacion.

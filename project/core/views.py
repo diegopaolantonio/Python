@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
@@ -15,6 +16,7 @@ class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
     template_name = "core/login.html"
 
+@login_required
 def register(request: HttpRequest) -> HttpResponse:
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
