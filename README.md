@@ -8,6 +8,12 @@
 
 El objetivo de esta aplicacion es facilitar la gestion dentro de una PYME o para un Freelance, pudiendo llevar un control del personal que se utiliza, los clientes que se atienden, los proyectos, la facturacion y los gastos.
 
+## Video de muestra de funcionamiento
+
+El video fue hecho sin audio ya que no tengo microfono en este momento, e intente mostrar la funcionalidad de los CRUDs de los models utilizados, asi como los campos que relacionan un model con otro, el buscador, login, logout, register y la navegacion.
+
+[Gestion PYME](https://drive.google.com/drive/folders/1QA1rmgzZ3gfZURd4FtequOAPjxvTfnEp?usp=sharing)
+
 ### Secciones
 
 - ***Login***
@@ -45,10 +51,6 @@ El objetivo de esta aplicacion es facilitar la gestion dentro de una PYME o para
 - ***Administracion***
     Pagina con el CRUD de los **Gastos** y **Facturas** de la empresa.
     Para verlo  debe estar logueado con algun usuario.
-
-## Video de muestra de funcionamiento
-
-[Gestion PYME](https://drive.google.com/drive/folders/1QA1rmgzZ3gfZURd4FtequOAPjxvTfnEp?usp=sharing)
 
 ## Descripcion tecnica
 
